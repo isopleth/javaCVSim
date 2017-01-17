@@ -1,6 +1,7 @@
 package jcvsim.backend6compartment;
 
 import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.ComplianceIndexes.*;
 import static jcvsim.backendCommon.Maths.atan;
 import static jcvsim.backendCommon.Maths.rint;
 import static jcvsim.backendCommon.Maths.sqrt;
@@ -100,8 +101,8 @@ public class Reflex {
             p.time[4] = theta.get(PVName.PV120) * sqrt(t_onset);  // ventricular systole
 
             // Update the contractility feedback.
-            p.compliance[PULMONARY_ARTERIAL_CPI] = r.compliance[0];
-            p.compliance[PULMONARY_VENOUS_CPI] = r.compliance[1];
+            p.compliance[RV_END_SYSTOLIC_COMPL] = r.compliance[0];
+            p.compliance[LV_END_SYSTOLIC_COMPL] = r.compliance[1];
 
             r.hr[2] = 60. / t_onset;
             cum_hr = 60. / t_onset;
@@ -133,8 +134,8 @@ public class Reflex {
                 // contractility feedback.
                 p.time[2] = p.time_new[2];  // PR-interval
                 p.time[4] = p.time_new[4];  // ventricular systole
-                p.compliance[PULMONARY_ARTERIAL_CPI] = r.compliance[0];
-                p.compliance[PULMONARY_VENOUS_CPI] = r.compliance[1];
+                p.compliance[RV_END_SYSTOLIC_COMPL] = r.compliance[0];
+                p.compliance[LV_END_SYSTOLIC_COMPL] = r.compliance[1];
                 a_time_old = a_time;
             } else {
                 v_time += dt;

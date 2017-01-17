@@ -115,5 +115,19 @@ public class Data_vector {
         // flowRate or volume
         public static final int INTRA_THORACIC_CPI = 24;
     };
+     
+    public static class ComplianceIndexes {
 
+        // This class defines the indexes for the compliance array compliance
+        // and the rate of change of  compliance dComplianceDt
+        // LA, LV, RQ, RV mean left and right atrial/ventrical. The ventriular
+        // ones aren't used - but they are in the 21 compartment model
+        public static int RA_COMPL_NOT_USED = 0;
+        public static int RV_COMPL = 1;
+        public static int LA_COMPL_NOT_USED = 2;
+        public static int LV_COMPL = 3;
+        // The last two indexes are only used by compliance, and not by dComplianceDt
+        public static int RV_END_SYSTOLIC_COMPL = 4;
+        public static int LV_END_SYSTOLIC_COMPL = 5;
+    };
 }

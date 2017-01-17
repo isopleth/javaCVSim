@@ -1,6 +1,7 @@
 package jcvsim.backend6compartment;
 
 import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.ComplianceIndexes.*;
 import static jcvsim.backend6compartment.Data_vector.N_GRAV;
 import static jcvsim.backendCommon.Maths.fabs;
 import static jcvsim.backendCommon.Maths.sqrt;
@@ -172,8 +173,8 @@ public class Estimate {
         // VERSION THIS IS SUPPOSED TO BE.
         // *********************************************************************
         // temporary
-        out.compliance[PULMONARY_ARTERIAL_CPI] = theta.get(PVName.RV_SYSTOLIC_COMPLIANCE);
-        out.compliance[PULMONARY_VENOUS_CPI] = theta.get(PVName.LV_SYSTOLIC_COMPLIANCE);
+        out.compliance[RV_END_SYSTOLIC_COMPL] = theta.get(PVName.RV_SYSTOLIC_COMPLIANCE);
+        out.compliance[LV_END_SYSTOLIC_COMPL] = theta.get(PVName.LV_SYSTOLIC_COMPLIANCE);
 
         // Bias pressures and intrathoracic pressure.
         out.pressure[BIAS_1_CPI] = out.dPressureDt[BIAS_1_CPI] = 0.0;

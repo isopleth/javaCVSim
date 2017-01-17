@@ -1,6 +1,7 @@
 package jcvsim.backend6compartment;
 
 import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.ComplianceIndexes.*;
 import static java.lang.Math.PI;
 import static jcvsim.backendCommon.Maths.cos;
 import static jcvsim.backendCommon.Maths.sin;
@@ -35,10 +36,10 @@ class Equation {
 
         // right and left ventricular diastolic and systolic compliances.
         double Crdias = theta.get(PVName.RV_DIASTOLIC_COMPLIANCE);
-        double sigCr = p.compliance[PULMONARY_ARTERIAL_CPI];
+        double sigCr = p.compliance[RV_END_SYSTOLIC_COMPL];
 
         double Cldias = theta.get(PVName.LV_DIASTOLIC_COMPLIANCE);
-        double sigCl = p.compliance[PULMONARY_VENOUS_CPI];
+        double sigCl = p.compliance[LV_END_SYSTOLIC_COMPL];
 
         // Ventricular contraction. PR-interval has not yet passed.
         if (v_time <= 0.0) {
@@ -68,11 +69,11 @@ class Equation {
             dErv = 0.0;
         }
 
-        p.compliance[ARTERIAL_CPI] = 1 / Erv;
-        p.compliance[RIGHT_VENTRICULAR_CPI] = 1 / Elv;
+        p.compliance[RV_COMPL] = 1 / Erv;
+        p.compliance[LV_COMPL] = 1 / Elv;
 
-        p.dComplianceDt[ARTERIAL_CPI] = -1.0 / (Erv * Erv) * dErv;
-        p.dComplianceDt[RIGHT_VENTRICULAR_CPI] = -1.0 / (Elv * Elv) * dElv;
+        p.dComplianceDt[RV_COMPL] = -1.0 / (Erv * Erv) * dErv;
+        p.dComplianceDt[LV_COMPL] = -1.0 / (Elv * Elv) * dElv;
     }
 
 
@@ -121,20 +122,20 @@ class Equation {
 
         // Computing the pressure derivatives based on the flows and compliance
         // values at the current time step.
-        p.dPressureDt[LEFT_VENTRICULAR_CPI] = ((p.pressure[INTRA_THORACIC_CPI] - p.pressure[LEFT_VENTRICULAR_CPI]) * p.dComplianceDt[RIGHT_VENTRICULAR_CPI] + p.flowRate[PULMONARY_VENOUS_CPI] - p.flowRate[LEFT_VENTRICULAR_CPI])
-                / p.compliance[RIGHT_VENTRICULAR_CPI] + p.dPressureDt[INTRA_THORACIC_CPI];
+        p.dPressureDt[LEFT_VENTRICULAR_CPI] = ((p.pressure[INTRA_THORACIC_CPI] - p.pressure[LEFT_VENTRICULAR_CPI]) * p.dComplianceDt[LV_COMPL] + p.flowRate[PULMONARY_VENOUS_CPI] - p.flowRate[LEFT_VENTRICULAR_CPI])
+                / p.compliance[LV_COMPL] + p.dPressureDt[INTRA_THORACIC_CPI];
         p.dPressureDt[ARTERIAL_CPI] = (p.flowRate[LEFT_VENTRICULAR_CPI] - p.flowRate[ARTERIAL_CPI]) / theta.get(PVName.ART_COMPLIANCE);
         p.dPressureDt[CENTRAL_VENOUS_CPI] = (p.flowRate[ARTERIAL_CPI] - p.flowRate[CENTRAL_VENOUS_CPI]) / theta.get(PVName.VEN_COMPLIANCE);
-        p.dPressureDt[RIGHT_VENTRICULAR_CPI] = ((p.pressure[INTRA_THORACIC_CPI] - p.pressure[RIGHT_VENTRICULAR_CPI]) * p.dComplianceDt[ARTERIAL_CPI] + p.flowRate[CENTRAL_VENOUS_CPI] - p.flowRate[RIGHT_VENTRICULAR_CPI])
-                / p.compliance[ARTERIAL_CPI] + p.dPressureDt[INTRA_THORACIC_CPI];
+        p.dPressureDt[RIGHT_VENTRICULAR_CPI] = ((p.pressure[INTRA_THORACIC_CPI] - p.pressure[RIGHT_VENTRICULAR_CPI]) * p.dComplianceDt[RV_COMPL] + p.flowRate[CENTRAL_VENOUS_CPI] - p.flowRate[RIGHT_VENTRICULAR_CPI])
+                / p.compliance[RV_COMPL] + p.dPressureDt[INTRA_THORACIC_CPI];
         p.dPressureDt[PULMONARY_ARTERIAL_CPI] = (p.flowRate[RIGHT_VENTRICULAR_CPI] - p.flowRate[PULMONARY_ARTERIAL_CPI]) / theta.get(PVName.PULM_ART_COMPLIANCE) + p.dPressureDt[INTRA_THORACIC_CPI];
         p.dPressureDt[PULMONARY_VENOUS_CPI] = (p.flowRate[PULMONARY_ARTERIAL_CPI] - p.flowRate[PULMONARY_VENOUS_CPI]) / theta.get(PVName.PULM_VEN_COMPLIANCE) + p.dPressureDt[INTRA_THORACIC_CPI];
 
         // Computing the compartmental volumes.
-        p.volume[LEFT_VENTRICULAR_CPI] = (p.pressure[LEFT_VENTRICULAR_CPI] - p.pressure[INTRA_THORACIC_CPI]) * p.compliance[RIGHT_VENTRICULAR_CPI] + theta.get(PVName.LV_ZPFV);
+        p.volume[LEFT_VENTRICULAR_CPI] = (p.pressure[LEFT_VENTRICULAR_CPI] - p.pressure[INTRA_THORACIC_CPI]) * p.compliance[LV_COMPL] + theta.get(PVName.LV_ZPFV);
         p.volume[ARTERIAL_CPI] = p.pressure[ARTERIAL_CPI] * theta.get(PVName.ART_COMPLIANCE) + theta.get(PVName.SYSTEMIC_ART_ZPFV);
         p.volume[CENTRAL_VENOUS_CPI] = p.pressure[CENTRAL_VENOUS_CPI] * theta.get(PVName.VEN_COMPLIANCE) + theta.get(PVName.SYSTEMIC_VEN_ZPFV);
-        p.volume[RIGHT_VENTRICULAR_CPI] = (p.pressure[RIGHT_VENTRICULAR_CPI] - p.pressure[INTRA_THORACIC_CPI]) * p.compliance[ARTERIAL_CPI] + theta.get(PVName.RV_ZPFV);
+        p.volume[RIGHT_VENTRICULAR_CPI] = (p.pressure[RIGHT_VENTRICULAR_CPI] - p.pressure[INTRA_THORACIC_CPI]) * p.compliance[RV_COMPL] + theta.get(PVName.RV_ZPFV);
         p.volume[PULMONARY_ARTERIAL_CPI] = (p.pressure[PULMONARY_ARTERIAL_CPI] - p.pressure[INTRA_THORACIC_CPI]) * theta.get(PVName.PULM_ART_COMPLIANCE) + theta.get(PVName.PULM_ART_ZPFV);
         p.volume[PULMONARY_VENOUS_CPI] = (p.pressure[PULMONARY_VENOUS_CPI] - p.pressure[INTRA_THORACIC_CPI]) * theta.get(PVName.PULM_VEN_COMPLIANCE) + theta.get(PVName.PULM_VEN_ZPFV);
     }
