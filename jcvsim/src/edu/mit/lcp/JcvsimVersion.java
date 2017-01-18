@@ -14,7 +14,7 @@ public class JcvsimVersion {
      */
     @Override
     public String toString() {
-        return "jCVSim v1.0.1";
+        return "jCVSim v1.0.2";
     }
 
 }

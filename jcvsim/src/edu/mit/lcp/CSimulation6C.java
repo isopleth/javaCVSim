@@ -19,7 +19,7 @@ public class CSimulation6C extends CSimulation {
 
     public CSimulation6C() {
 	super();
-	System.err.println("CSimulation6C()");	
+	System.out.println("CSimulation6C()");	
 
 	// create a new instance of the output class which provides
 	// access to the data structures in the loaded C library

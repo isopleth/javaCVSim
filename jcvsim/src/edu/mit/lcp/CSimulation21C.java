@@ -18,7 +18,7 @@ public class CSimulation21C extends CSimulation {
 
     public CSimulation21C() {
         super();
-        System.err.println("CSimulation21C()");
+        System.out.println("CSimulation21C()");
 
         // create a new instance of the output class which provides
         // access to the data structures in the loaded C library
