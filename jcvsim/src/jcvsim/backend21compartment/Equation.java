@@ -432,16 +432,25 @@ class Equation {
 
         double qsp_loss = 0.0, qll_loss = 0.0;     // leakage currents 
         double qab_loss = 0.0, q_loss = 0.0;
-        double q_not = theta.get(PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURINT_TILT) / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE); // 
-        double tau = 276.0;                               // time constant of inter-
-        // stitial fluid shifts
+        double q_not = theta.get(PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURINT_TILT) / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE);
+        final double TAU = 276.0;        // time constant of interstitial fluid shifts
 
-        double con = 0.0, con1 = -3.5 / 0.738, con2 = 0.0;
-        double con3 = 0.0;
+        // Page 49 of Thomas Heldt’s PhD thesis:
+        // "In addition to changes in the luminal pressures described by Ph, Mead
+        // and Gaensler [123] and Ferris and co-workers [124] showed that
+        // intra-thoracic pressure, Pth, changed over similarly short periods of
+        // time in response to gravitational stress. Mead and Gaensler reported
+        // intra-thoracic pressure to drop by (3.1±1.0) mm Hg in response to
+        // sitting up from the supine position. Ferris demonstrated a drop of
+        // (3.5±0.7) mm Hg in response to head-up tilts to 90◦. We implemented
+        // these changes in intra-thoracic pressure by assuming a time course
+        // similar to the one described by Equation 2.4."
+        final double INTRATHORACIC_PRESSURE_CHANGE_ON_TILT = -3.5;
+        double con1 = INTRATHORACIC_PRESSURE_CHANGE_ON_TILT / 0.738;
 
         // Define certain dummy variables.
-        alpha = theta.get(PVName.TILT_ANGLE) * PI / 180.0;
-        q_not *= sin(alpha) / sin(85.0 * PI / 180.0);
+        alpha = Math.toRadians(theta.get(PVName.TILT_ANGLE));
+        q_not *= sin(alpha) / sin(Math.toRadians(85.0));
         con1 *= sin(alpha);
 
         // Tilt from horizontal to head-up position.
@@ -473,12 +482,12 @@ class Equation {
             p.grav[13] = theta.get(PVName.ABDOM_IVC_HEIGHT) / 3.0 * gravity;  // abdominal IVC
             p.grav[14] = theta.get(PVName.THORACIC_IVC_HEIGHT) / 2.0 * gravity;  // thoracic IVC
 
-            q_loss = q_not * (1.0 - exp(-tilt_time / tau));
+            q_loss = q_not * (1.0 - exp(-tilt_time / TAU));
             qsp_loss = 7.0 / (63.0) * q_loss;
             qll_loss = 40.0 / (63.0) * q_loss;
             qab_loss = 16 / (63.0) * q_loss;
 
-            V_loss = q_not * (tilt_time - tau * (1.0 - exp(-tilt_time / tau)));
+            V_loss = q_not * (tilt_time - TAU * (1.0 - exp(-tilt_time / TAU)));
         } // Head-up position
         else if ((p.time[MODIFIED_ABSOLUTE_TIME] > (theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) + tiltStartTime))
                 && (p.time[MODIFIED_ABSOLUTE_TIME] <= (theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) + tiltStartTime
@@ -507,14 +516,14 @@ class Equation {
             p.grav[13] = theta.get(PVName.ABDOM_IVC_HEIGHT) / 3.0 * gravity;  // abdominal IVC
             p.grav[14] = theta.get(PVName.THORACIC_IVC_HEIGHT) / 2.0 * gravity;  // thoracic IVC
 
-            q_loss = q_not * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau)) * exp(-tilt_time / tau);
+            q_loss = q_not * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU)) * exp(-tilt_time / TAU);
             qsp_loss = 7.0 / (63.0) * q_loss;
             qll_loss = 40.0 / (63.0) * q_loss;
             qab_loss = 16 / (63.0) * q_loss;
 
             V_loss = q_not * theta.get(PVName.TIME_TO_MAX_TILT_ANGLE)
-                    * (1.0 - tau * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau))
-                    * exp(-tilt_time / tau) / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE));
+                    * (1.0 - TAU * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU))
+                    * exp(-tilt_time / TAU) / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE));
         } // Tilt back to the supine position
         else if ((p.time[MODIFIED_ABSOLUTE_TIME] >= tiltStopTime)
                 && (p.time[MODIFIED_ABSOLUTE_TIME] < (tiltStopTime + theta.get(PVName.TIME_TO_MAX_TILT_ANGLE)))) {
@@ -544,15 +553,15 @@ class Equation {
             p.grav[13] = theta.get(PVName.ABDOM_IVC_HEIGHT) / 3.0 * gravity;  // abdominal IVC
             p.grav[14] = theta.get(PVName.THORACIC_IVC_HEIGHT) / 2.0 * gravity;  // thoracic IVC
 
-            q_loss = q_not * (1.0 + (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau))
-                    * exp(-theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) / tau)) * exp(-tilt_time / tau) - q_not;
+            q_loss = q_not * (1.0 + (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU))
+                    * exp(-theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) / TAU)) * exp(-tilt_time / TAU) - q_not;
             qsp_loss = 7.0 / (63.0) * q_loss;
             qll_loss = 40.0 / (63.0) * q_loss;
             qab_loss = 16 / (63.0) * q_loss;
 
-            V_loss = (1.0 + (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau)) * exp(-theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) / tau))
-                    * (1.0 - exp(-tilt_time / tau)) * q_not * tau
-                    - q_not * tau * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau)) * exp(-theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) / tau)
+            V_loss = (1.0 + (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU)) * exp(-theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) / TAU))
+                    * (1.0 - exp(-tilt_time / TAU)) * q_not * TAU
+                    - q_not * TAU * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU)) * exp(-theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) / TAU)
                     + q_not * theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) * (1.0 - tilt_time / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE));
         } // Supine position
         else if (p.time[MODIFIED_ABSOLUTE_TIME] > (tiltStopTime + theta.get(PVName.TIME_TO_MAX_TILT_ANGLE))) {
@@ -581,14 +590,14 @@ class Equation {
             p.grav[13] = theta.get(PVName.ABDOM_IVC_HEIGHT) / 3.0 * gravity;  // abdominal IVC
             p.grav[14] = theta.get(PVName.THORACIC_IVC_HEIGHT) / 2.0 * gravity;  // thoracic IVC
 
-            q_loss = -q_not * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau)) * exp(-tilt_time / tau)
-                    * (1.0 - exp(-(theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) + theta.get(PVName.TIME_TO_MAX_TILT_ANGLE)) / tau));
+            q_loss = -q_not * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU)) * exp(-tilt_time / TAU)
+                    * (1.0 - exp(-(theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) + theta.get(PVName.TIME_TO_MAX_TILT_ANGLE)) / TAU));
             qsp_loss = 7.0 / (63.0) * q_loss;
             qll_loss = 40.0 / (63.0) * q_loss;
             qab_loss = 16 / (63.0) * q_loss;
 
-            V_loss = q_not * tau * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / tau)) * exp(-tilt_time / tau)
-                    * (1.0 - exp(-(theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) + theta.get(PVName.TIME_TO_MAX_TILT_ANGLE)) / tau));
+            V_loss = q_not * TAU * (1.0 - exp(-theta.get(PVName.TIME_TO_MAX_TILT_ANGLE) / TAU)) * exp(-tilt_time / TAU)
+                    * (1.0 - exp(-(theta.get(PVName.DURATION_IN_UPRIGHT_POSTURE) + theta.get(PVName.TIME_TO_MAX_TILT_ANGLE)) / TAU));
         }
 
         // Write the computed values for the flows, the volume loss, and the carotid
@@ -601,20 +610,8 @@ class Equation {
         p.tilt[0] = theta.get(PVName.SENSED_PRESSURE_OFFSET_DURING_TILT) * gravity;
         p.tilt[1] = V_loss;
 
-        /*
-         * int i;
-         */
- /*
-         * for (i=0; i < 15; i++)
-         */
- /*
-         * if ( p.grav[i] != 0 )
-         */
- /*
-         * printf("time: %.4f p.grav[%d]: %.4f\n", p.time[0], i, p.grav[i]);
-         */
         // convert tilt angle to degrees
-        p.tilt_angle = tilt_angle * 180.0 / PI;
+        p.tilt_angle = Math.toDegrees(tilt_angle);
 
         return 0;
     }
