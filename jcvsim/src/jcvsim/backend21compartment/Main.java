@@ -4,8 +4,8 @@ import static java.lang.Math.PI;
 import jcvsim.backendCommon.Turning;
 import static jcvsim.backend21compartment.Output_vector.N_SAMPLES;
 import static jcvsim.backendCommon.Maths.tan;
-import static jcvsim.backend21compartment.Data_vector.CompartmentIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.TimeIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.CompartmentIndex.*;
+import static jcvsim.backend21compartment.Data_vector.TimeIndex.*;
 
 /*
  * This file was created in order to run the simulation from the Java GUI.

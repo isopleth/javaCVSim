@@ -76,7 +76,7 @@ public class Data_vector {
         grav = new double[N_GRAV];
     }
 
-    public final void set(Data_vector other) {
+    public final void copyFrom(Data_vector other) {
 
         pressure = Arrays.copyOf(other.pressure, other.pressure.length);
         dPressureDt = Arrays.copyOf(other.dPressureDt, other.dPressureDt.length);
@@ -92,10 +92,10 @@ public class Data_vector {
 
     public Data_vector(Data_vector other) {
         super();
-        set(other);
+        copyFrom(other);
     }
     
-     public static class CompartmentIndexes {
+     public static class CompartmentIndex {
 
         // These indexes (up to and including LEFT_VENTRICULAR_CPI) are used by
         // pressure, dPressureDt, flowRate and volume
@@ -116,7 +116,7 @@ public class Data_vector {
         public static final int INTRA_THORACIC_CPI = 24;
     };
      
-    public static class ComplianceIndexes {
+    public static class ComplianceIndex {
 
         // This class defines the indexes for the compliance array compliance
         // and the rate of change of  compliance dComplianceDt

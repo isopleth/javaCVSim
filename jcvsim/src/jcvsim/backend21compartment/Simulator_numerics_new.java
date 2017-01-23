@@ -1,6 +1,6 @@
 package jcvsim.backend21compartment;
-import static jcvsim.backend21compartment.Data_vector.CompartmentIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.TimeIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.CompartmentIndex.*;
+import static jcvsim.backend21compartment.Data_vector.TimeIndex.*;
 
 /*
  * Simulator.c contains the top-level source code for the simulation routine.

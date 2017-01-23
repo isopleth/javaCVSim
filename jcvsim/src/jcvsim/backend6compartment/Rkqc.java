@@ -1,6 +1,6 @@
 package jcvsim.backend6compartment;
 
-import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
+import static jcvsim.backend6compartment.Data_vector.CompartmentIndex.*;
 import static jcvsim.backendCommon.Maths.exp;
 import static jcvsim.backendCommon.Maths.fabs;
 import static jcvsim.backendCommon.Maths.log;
@@ -105,7 +105,7 @@ public class Rkqc {
         q_local.pressure[PULMONARY_VENOUS_CPI] = q.pressure[PULMONARY_VENOUS_CPI] + hh * q_local.dPressureDt[PULMONARY_VENOUS_CPI];
 
         // Compute the derivatives.
-        p_local.set(q_local);
+        p_local.copyFrom(q_local);
         Equation.eqns_ptr(p_local, c, s);
         p_local.time[1] = q.time[1];
         p_local.time[6] = q.time[6];
@@ -147,7 +147,7 @@ public class Rkqc {
         r.hr[1] = t.hr[1];
         r.step_cnt = t.step_cnt;
 
-        q.set(p_local);
+        q.copyFrom(p_local);
     }
 
     public static int rkqc_ptr(Data_vector pres, Reflex_vector r, Parameter_vector theta,
@@ -172,10 +172,10 @@ public class Rkqc {
         // model performace when bv is constant.
 
         for (;;) {
-            p.set(pres);
-            q.set(pres);
-            s.set(r);
-            t.set(r);
+            p.copyFrom(pres);
+            q.copyFrom(pres);
+            s.copyFrom(r);
+            t.copyFrom(r);
             hh = 0.5 * h;
 
             //    printf("Taking first step of size: %f\n", hh);

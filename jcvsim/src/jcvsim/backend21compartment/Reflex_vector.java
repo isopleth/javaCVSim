@@ -52,7 +52,7 @@ public class Reflex_vector {
         volume = new double[N_VOL];
     }
 
-    public void set(Reflex_vector other) {
+    public void copyFrom(Reflex_vector other) {
         hr = Arrays.copyOf(other.hr, other.hr.length);
         compliance = Arrays.copyOf(other.compliance, other.compliance.length);
         resistance = Arrays.copyOf(other.resistance, other.resistance.length);
@@ -63,6 +63,6 @@ public class Reflex_vector {
 
     public Reflex_vector(Reflex_vector other) {
         super();
-        set(other);
+        copyFrom(other);
     }
 }

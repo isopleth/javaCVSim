@@ -18,21 +18,4 @@ import java.util.HashMap;
 
 public class Parameter_vector extends HashMap<PVName, Double> {
 
-    /*
-     * N_PARAMETER is the number of parameters of the model. It determines the
-     * length of the parameter vector defined in the structure Parameter_vector.
-     */
-    /*
-    private static final int N_PARAMETER = 153;
-
-    public double[] vec;
-
-    public Parameter_vector() {
-        vec = new double[N_PARAMETER];
-    }
-
-    public double getVec(int index) {
-        return vec[index];
-    }
-*/
 }

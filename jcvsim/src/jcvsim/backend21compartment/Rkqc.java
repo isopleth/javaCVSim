@@ -4,8 +4,8 @@ import static jcvsim.backendCommon.Maths.exp;
 import static jcvsim.backendCommon.Maths.fabs;
 import static jcvsim.backendCommon.Maths.log;
 import static jcvsim.backendCommon.Maths.pow;
-import static jcvsim.backend21compartment.Data_vector.CompartmentIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.TimeIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.CompartmentIndex.*;
+import static jcvsim.backend21compartment.Data_vector.TimeIndex.*;
 
 /*
  * This file contains the two routines needed to advance the solution of the
@@ -135,7 +135,7 @@ public class Rkqc {
         q_local.pressure[LEFT_VENTRICULAR_CPI] = q.pressure[LEFT_VENTRICULAR_CPI] + hh * q_local.dPressureDt[LEFT_VENTRICULAR_CPI];
 
         // Compute the derivatives.
-        p_local.set(q_local);
+        p_local.copyFrom(q_local);
         Equation.eqns_ptr(p_local, c, s, tiltTestOn, tiltStartTime, tiltStopTime);
         p_local.time[CARDIAC_TIME] = q.time[CARDIAC_TIME];
         p_local.time[VENTRICULAR_TIME] = q.time[VENTRICULAR_TIME];
@@ -222,7 +222,7 @@ public class Rkqc {
         r.hr[1] = t.hr[1];
         r.step_cnt = t.step_cnt;
 
-        q.set(p_local);
+        q.copyFrom(p_local);
     }
 
 // Pass *double as single element array - a bit of a bodge!
@@ -248,10 +248,10 @@ public class Rkqc {
         Equation.eqns_ptr(pres, theta, r, tiltTestOn, tiltStartTime, tiltStopTime);
 
         for (;;) {
-            p.set(pres);
-            q.set(pres);
-            s.set(r);
-            t.set(r);
+            p.copyFrom(pres);
+            q.copyFrom(pres);
+            s.copyFrom(r);
+            t.copyFrom(r);
             hh = 0.5 * h;
 
             //    printf("Taking first step of size: %f\n", hh);

@@ -1,8 +1,8 @@
 package jcvsim.backend6compartment;
 
-import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.ComplianceIndexes.*;
 import static java.lang.Math.PI;
+import static jcvsim.backend6compartment.Data_vector.CompartmentIndex.*;
+import static jcvsim.backend6compartment.Data_vector.ComplianceIndex.*;
 import static jcvsim.backendCommon.Maths.cos;
 import static jcvsim.backendCommon.Maths.sin;
 

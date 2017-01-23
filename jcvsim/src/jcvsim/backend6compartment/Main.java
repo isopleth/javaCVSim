@@ -1,6 +1,6 @@
 package jcvsim.backend6compartment;
 
-import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
+import static jcvsim.backend6compartment.Data_vector.CompartmentIndex.*;
 import jcvsim.backendCommon.Turning;
 
 /*

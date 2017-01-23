@@ -75,7 +75,7 @@ public class Data_vector {
     public double[] grav;
     double tilt_angle; // instantaneous tilt angle in degrees
 
-    public static class CompartmentIndexes {
+    public static class CompartmentIndex {
 
         // These indexes (up to and including LEFT_VENTRICULAR_PI) are used by
         // pressure, dPressureDt, flowRate and volume
@@ -110,7 +110,7 @@ public class Data_vector {
         public static final int INTRA_THORACIC_CPI = 24;
     };
 
-    public static class ComplianceIndexes {
+    public static class ComplianceIndex {
 
         // This class defines the indexes for the compliance array compliance
         // and the rate of change of  compliance dComplianceDt
@@ -124,7 +124,7 @@ public class Data_vector {
         public static int LV_END_SYSTOLIC_COMPL = 5;
     };
 
-    public static class TimeIndexes {
+    public static class TimeIndex {
         // This is used by time[] and time_new[]
 
         public static int ABSOLUTE_TIME = 0;
@@ -157,7 +157,7 @@ public class Data_vector {
      *
      * @param other source Data_vector
      */
-    public final void set(Data_vector other) {
+    public final void copyFrom(Data_vector other) {
 
         pressure = Arrays.copyOf(other.pressure, other.pressure.length);
         dPressureDt = Arrays.copyOf(other.dPressureDt, other.dPressureDt.length);
@@ -178,7 +178,7 @@ public class Data_vector {
      */
     public Data_vector(Data_vector other) {
         super();
-        set(other);
+        copyFrom(other);
     }
 
 }

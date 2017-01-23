@@ -5,9 +5,9 @@ import static jcvsim.backendCommon.Maths.atan;
 import static jcvsim.backendCommon.Maths.cos;
 import static jcvsim.backendCommon.Maths.exp;
 import static jcvsim.backendCommon.Maths.sin;
-import static jcvsim.backend21compartment.Data_vector.CompartmentIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.ComplianceIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.TimeIndexes.*;
+import static jcvsim.backend21compartment.Data_vector.CompartmentIndex.*;
+import static jcvsim.backend21compartment.Data_vector.ComplianceIndex.*;
+import static jcvsim.backend21compartment.Data_vector.TimeIndex.*;
 
 
 /*

@@ -1,7 +1,7 @@
 package jcvsim.backend6compartment;
 
-import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
-import static jcvsim.backend21compartment.Data_vector.ComplianceIndexes.*;
+import static jcvsim.backend6compartment.Data_vector.CompartmentIndex.*;
+import static jcvsim.backend6compartment.Data_vector.ComplianceIndex.*;
 import static jcvsim.backend6compartment.Data_vector.N_GRAV;
 import static jcvsim.backendCommon.Maths.fabs;
 import static jcvsim.backendCommon.Maths.sqrt;

@@ -1,6 +1,6 @@
 package jcvsim.backend6compartment;
 
-import static jcvsim.backend6compartment.Data_vector.CompartmentIndexes.*;
+import static jcvsim.backend6compartment.Data_vector.CompartmentIndex.*;
 /*
  * Simulator.c contains the top-level source code for the simulation routine.
  * The simulation routine reads the parameter vector and returns the
