@@ -102,7 +102,7 @@ public enum PVName {
     MAX_INCREASE_IN_SPLAN_DISTENDING_VOL, // Original C code array index 71
     MAX_INCREASE_IN_LEG_DISTENDING_VOL, // Original C code array index 72
     MAX_INCREASE_IN_ABDOM_DISTENDING_VOL, // Original C code array index 73
-    MAXIMAL_BLOOD_VOLUME_LOSS_DURINT_TILT, // Original C code array index 74
+    MAXIMAL_BLOOD_VOLUME_LOSS_DURING_TILT, // Original C code array index 74
     PV75, // Original C code array index 75
     PV76, // Original C code array index 76
     UBODY_VEN_ZPFV, // Original C code array index 77

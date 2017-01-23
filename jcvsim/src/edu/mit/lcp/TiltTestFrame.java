@@ -24,7 +24,7 @@ public class TiltTestFrame extends JFrame implements PropertyChangeListener {
 
     private static final PVName tiltTimeIndex = PVName.TIME_TO_MAX_TILT_ANGLE; 
     private static final PVName tiltAngleIndex = PVName.TILT_ANGLE; 
-    private static final PVName maxVolumeLossIndex =PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURINT_TILT;
+    private static final PVName maxVolumeLossIndex =PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURING_TILT;
 
     private JFrame frame;
     private JToggleButton tiltTestOnButton;

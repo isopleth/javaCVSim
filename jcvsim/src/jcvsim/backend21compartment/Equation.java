@@ -432,7 +432,7 @@ class Equation {
 
         double qsp_loss = 0.0, qll_loss = 0.0;     // leakage currents 
         double qab_loss = 0.0, q_loss = 0.0;
-        double q_not = theta.get(PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURINT_TILT) / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE);
+        double q_not = theta.get(PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURING_TILT) / theta.get(PVName.TIME_TO_MAX_TILT_ANGLE);
         final double TAU = 276.0;        // time constant of interstitial fluid shifts
 
         // Page 49 of Thomas Heldt’s PhD thesis:

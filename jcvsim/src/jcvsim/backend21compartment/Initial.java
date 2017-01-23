@@ -821,7 +821,7 @@ class Initial {
         pvec.put(PVName.MAX_INCREASE_IN_SPLAN_DISTENDING_VOL, 1500.0);      // Maximal increase in sp distending vol.
         pvec.put(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL, 1000.0);      // Maximal increase in ll distending vol.
         pvec.put(PVName.MAX_INCREASE_IN_ABDOM_DISTENDING_VOL, 650.0);      // Maximal increase in ab distending vol.
-        pvec.put(PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURINT_TILT, 300.0);      // Maximal blood volume loss during tilt
+        pvec.put(PVName.MAXIMAL_BLOOD_VOLUME_LOSS_DURING_TILT, 300.0);      // Maximal blood volume loss during tilt
         pvec.put(PVName.PV75, 4166.0);      // Total zero pressure filling volume
         pvec.put(PVName.PV76, 715.0);      // Volume of arterial compartment
         pvec.put(PVName.UBODY_VEN_ZPFV, hemo[9].v[0][0]);        // ZPFV of upper body compartment
