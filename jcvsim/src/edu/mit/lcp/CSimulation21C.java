@@ -738,10 +738,10 @@ public class CSimulation21C extends CSimulation {
                     "Inferior Vena Cava Zero-Pressure Filling Volume",
                     "mL", 21.0, 45.0));
 
-            list.add(new Parameter21C(pvec, PVName.LBODY_ART_COMPLIANCE,
+            list.add(new Parameter21C(pvec, PVName.LEG_ART_COMPLIANCE,
                     "Lower Body Arteries", "Compliance", "Lower Body Arteries Compliance",
                     "mL/mmHg", 0.1, 0.7));
-            list.add(new Parameter21C(pvec, PVName.LBODY_MICRO_RESISTANCE,
+            list.add(new Parameter21C(pvec, PVName.LEG_MICRO_RESISTANCE,
                     "Lower Body Microcirculation", "Resistance",
                     "Lower Body Microcirculation Resistance",
                     "PRU", 4.0, 10.3));
@@ -750,10 +750,10 @@ public class CSimulation21C extends CSimulation {
                     "Lower Body Arteries Zero-Pressure Filling Volume",
                     "mL", 140.0, 260.0));
 
-            list.add(new Parameter21C(pvec, PVName.LBODY_VEN_COMPLIANCE,
+            list.add(new Parameter21C(pvec, PVName.LEG_VEN_COMPLIANCE,
                     "Lower Body Veins", "Compliance", "Lower Body Veins Compliance",
                     "mL/mmHg", 11.0, 29.0));
-            list.add(new Parameter21C(pvec, PVName.LBODY_VEN_RESISTANCE,
+            list.add(new Parameter21C(pvec, PVName.LEG_VEN_RESISTANCE,
                     "Lower Body Veins", "Resistance", "Lower Body Veins Resistance",
                     "PRU", 0.0, 0.25));
             list.add(new Parameter21C(pvec, PVName.LBODY_VEN_ZPFV,
@@ -890,7 +890,7 @@ public class CSimulation21C extends CSimulation {
                     "Renal Microcirculation", "Resistance",
                     "Renal Microcirculation Resistance",
                     "PRU", 3.2, 6.2));
-            list.add(new Parameter21C(pvec, PVName.LBODY_MICRO_RESISTANCE,
+            list.add(new Parameter21C(pvec, PVName.LEG_MICRO_RESISTANCE,
                     "Lower Body Microcirculation", "Resistance",
                     "Lower Body Microcirculation Resistance",
                     "PRU", 4.0, 10.3));

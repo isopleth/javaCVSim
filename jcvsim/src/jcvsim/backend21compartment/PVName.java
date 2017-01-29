@@ -9,7 +9,7 @@ package jcvsim.backend21compartment;
  * CP = Cardiopulmonary
  * IVC = Inferior vena cava
  * LA = Left Atrium 
- * LBODY = Lower Body
+ * LEG = Leg
  * LV = Left Ventricle 
  * MICRO = Microcirculation
  * PULM = Pulmonary Arterial
@@ -67,7 +67,7 @@ public enum PVName {
     UBODY_VEN_COMPLIANCE, // Original C code array index 36
     RENAL_VEN_COMPLIANCE, // Original C code array index 37
     SPLAN_VEN_COMPLIANCE, // Original C code array index 38
-    LBODY_VEN_COMPLIANCE, // Original C code array index 39
+    LEG_VEN_COMPLIANCE, // Original C code array index 39
     ABDOM_VEN_COMPLIANCE, // Original C code array index 40
     IVC_COMPLIANCE, // Original C code array index 41
     SVC_COMPLIANCE, // Original C code array index 42
@@ -87,8 +87,8 @@ public enum PVName {
     RENAL_VEN_RESISTANCE, // Original C code array index 56
     SPLAN_MICRO_RESISTANCE, // Original C code array index 57
     SPLAN_VEN_RESISTANCE, // Original C code array index 58
-    LBODY_MICRO_RESISTANCE, // Original C code array index 59
-    LBODY_VEN_RESISTANCE, // Original C code array index 60
+    LEG_MICRO_RESISTANCE, // Original C code array index 59
+    LEG_VEN_RESISTANCE, // Original C code array index 60
     ABDOM_VEN_RESISTANCE, // Original C code array index 61
     IVC_RESISTANCE, // Original C code array index 62
     SVC_RESISTANCE, // Original C code array index 63
@@ -132,7 +132,7 @@ public enum PVName {
     ABDOM_AORTA_COMPLIANCE, // Original C code array index 101
     RENAL_ART_COMPLIANCE, // Original C code array index 102
     SPLAN_ART_COMPLIANCE, // Original C code array index 103
-    LBODY_ART_COMPLIANCE, // Original C code array index 104
+    LEG_ART_COMPLIANCE, // Original C code array index 104
     BRACH_ART_RESISTANCE, // Original C code array index 105
     UBODY_ART_RESISTANCE, // Original C code array index 106
     THORACIC_AORTA_RESISTANCE, // Original C code array index 107

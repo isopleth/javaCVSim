@@ -786,7 +786,7 @@ class Initial {
         pvec.put(PVName.UBODY_VEN_COMPLIANCE, hemo[9].c[0][0]);         // C upper body veins
         pvec.put(PVName.RENAL_VEN_COMPLIANCE, hemo[11].c[0][0]);        // C renal veins
         pvec.put(PVName.SPLAN_VEN_COMPLIANCE, hemo[12].c[0][0]);        // C splanchnic veins
-        pvec.put(PVName.LBODY_VEN_COMPLIANCE, hemo[13].c[0][0]);        // C lower body veins
+        pvec.put(PVName.LEG_VEN_COMPLIANCE, hemo[13].c[0][0]);        // C lower body veins
         pvec.put(PVName.ABDOM_VEN_COMPLIANCE, hemo[14].c[0][0]);        // C abdominal veins
         pvec.put(PVName.IVC_COMPLIANCE, hemo[15].c[0][0]);        // C inferior vena cava
         pvec.put(PVName.SVC_COMPLIANCE, hemo[10].c[0][0]);        // C superior vena cava
@@ -806,8 +806,8 @@ class Initial {
         pvec.put(PVName.RENAL_VEN_RESISTANCE, hemo[11].r[0][0]);        // R kidney outflow
         pvec.put(PVName.SPLAN_MICRO_RESISTANCE, micro_r.r[2][0]);         // R splanchnic compartment
         pvec.put(PVName.SPLAN_VEN_RESISTANCE, hemo[12].r[0][0]);        // R splanchnic outflow
-        pvec.put(PVName.LBODY_MICRO_RESISTANCE, micro_r.r[3][0]);         // R lower body compartment
-        pvec.put(PVName.LBODY_VEN_RESISTANCE, hemo[13].r[0][0]);        // R lower body outflow
+        pvec.put(PVName.LEG_MICRO_RESISTANCE, micro_r.r[3][0]);         // R lower body compartment
+        pvec.put(PVName.LEG_VEN_RESISTANCE, hemo[13].r[0][0]);        // R lower body outflow
         pvec.put(PVName.ABDOM_VEN_RESISTANCE, hemo[14].r[0][0]);        // R abdominal venous compartment
         pvec.put(PVName.IVC_RESISTANCE, hemo[15].r[0][0]);        // R inferior vena cava comp.
         pvec.put(PVName.SVC_RESISTANCE, hemo[10].r[0][0]);        // R superior vena cava comp.
@@ -851,7 +851,7 @@ class Initial {
         pvec.put(PVName.ABDOM_AORTA_COMPLIANCE, hemo[4].c[0][0]);        // C abdominal aorta
         pvec.put(PVName.RENAL_ART_COMPLIANCE, hemo[5].c[0][0]);        // C renal arteries
         pvec.put(PVName.SPLAN_ART_COMPLIANCE, hemo[6].c[0][0]);        // C splanchnic arteries
-        pvec.put(PVName.LBODY_ART_COMPLIANCE, hemo[7].c[0][0]);        // C leg arteries and arterioles
+        pvec.put(PVName.LEG_ART_COMPLIANCE, hemo[7].c[0][0]);        // C leg arteries and arterioles
         pvec.put(PVName.BRACH_ART_RESISTANCE, hemo[1].r[0][0]);        // R upper thoracic aorta
         pvec.put(PVName.UBODY_ART_RESISTANCE, hemo[2].r[0][0]);        // R head arteries
         pvec.put(PVName.THORACIC_AORTA_RESISTANCE, hemo[3].r[0][0]);        // R lower thoracic aorta

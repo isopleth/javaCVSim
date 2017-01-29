@@ -178,12 +178,12 @@ class Equation {
         Vsp = 2.0 * theta.get(PVName.MAX_INCREASE_IN_SPLAN_DISTENDING_VOL) * atan(con * (p.pressure[SPLANCHNIC_VENOUS_CPI] - p.pressure[BIAS_1_PI])) / PI;
 
         if ((p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) > 0.0) {
-            con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-            Cll = theta.get(PVName.LBODY_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
+            con = PI * theta.get(PVName.LEG_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
+            Cll = theta.get(PVName.LEG_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
             Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI])) / PI;
         } else {
-            con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-            Cll = theta.get(PVName.LBODY_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
+            con = PI * theta.get(PVName.LEG_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
+            Cll = theta.get(PVName.LEG_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
         }
 
         con = PI * theta.get(PVName.ABDOM_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_ABDOM_DISTENDING_VOL);
@@ -223,7 +223,7 @@ class Equation {
         p.flowRate[RIGHT_ATRIAL_CPI] = (p.pressure[LEG_ARTERIAL_CPI] - p.pressure[LEG_VENOUS_CPI]) / r.resistance[3];
 
         if (p.pressure[LEG_VENOUS_CPI] > (p.pressure[ABDOMINAL_VENOUS_CPI] + p.grav[12])) {
-            p.flowRate[RIGHT_VENTRICULAR_CPI] = (p.pressure[LEG_VENOUS_CPI] - p.pressure[ABDOMINAL_VENOUS_CPI] - p.grav[12]) / theta.get(PVName.LBODY_VEN_RESISTANCE);
+            p.flowRate[RIGHT_VENTRICULAR_CPI] = (p.pressure[LEG_VENOUS_CPI] - p.pressure[ABDOMINAL_VENOUS_CPI] - p.grav[12]) / theta.get(PVName.LEG_VEN_RESISTANCE);
         } else {
             p.flowRate[RIGHT_VENTRICULAR_CPI] = 0.0;
         }
@@ -265,7 +265,7 @@ class Equation {
         p.dPressureDt[RENAL_VENOUS_CPI] = (p.flowRate[SPLANCHNIC_ARTERIAL_CPI] - p.flowRate[SPLANCHNIC_VENOUS_CPI]) / theta.get(PVName.RENAL_VEN_COMPLIANCE) + p.dPressureDt[BIAS_1_PI];
         p.dPressureDt[SPLANCHNIC_ARTERIAL_CPI] = (p.flowRate[LEG_ARTERIAL_CPI] - p.flowRate[LEG_VENOUS_CPI]) / theta.get(PVName.SPLAN_ART_COMPLIANCE) + p.dPressureDt[BIAS_1_PI];
         p.dPressureDt[SPLANCHNIC_VENOUS_CPI] = (p.flowRate[LEG_VENOUS_CPI] - p.flowRate[ABDOMINAL_VENOUS_CPI] - t.flow[0]) / Csp + p.dPressureDt[BIAS_1_PI];
-        p.dPressureDt[LEG_ARTERIAL_CPI] = (p.flowRate[INFERIOR_VENA_CAVA_CPI] - p.flowRate[RIGHT_ATRIAL_CPI]) / theta.get(PVName.LBODY_ART_COMPLIANCE) + p.dPressureDt[BIAS_2_PI];
+        p.dPressureDt[LEG_ARTERIAL_CPI] = (p.flowRate[INFERIOR_VENA_CAVA_CPI] - p.flowRate[RIGHT_ATRIAL_CPI]) / theta.get(PVName.LEG_ART_COMPLIANCE) + p.dPressureDt[BIAS_2_PI];
         p.dPressureDt[LEG_VENOUS_CPI] = (p.flowRate[RIGHT_ATRIAL_CPI] - p.flowRate[RIGHT_VENTRICULAR_CPI] - t.flow[1]) / Cll + p.dPressureDt[BIAS_2_PI];
         p.dPressureDt[ABDOMINAL_VENOUS_CPI] = (p.flowRate[SPLANCHNIC_VENOUS_CPI] + p.flowRate[ABDOMINAL_VENOUS_CPI] + p.flowRate[RIGHT_VENTRICULAR_CPI] - p.flowRate[PULMONARY_ARTERIAL_CPI] - t.flow[2]) / Cab + p.dPressureDt[BIAS_1_PI];
         p.dPressureDt[INFERIOR_VENA_CAVA_CPI] = (p.flowRate[PULMONARY_ARTERIAL_CPI] - p.flowRate[PULMONARY_VENOUS_CPI]) / theta.get(PVName.IVC_COMPLIANCE) + p.dPressureDt[INTRA_THORACIC_CPI];
@@ -292,7 +292,7 @@ class Equation {
         p.volume[RENAL_VENOUS_CPI] = (p.pressure[RENAL_VENOUS_CPI] - p.pressure[BIAS_1_PI]) * theta.get(PVName.RENAL_VEN_COMPLIANCE) + r.volume[1];
         p.volume[SPLANCHNIC_ARTERIAL_CPI] = (p.pressure[SPLANCHNIC_ARTERIAL_CPI] - p.pressure[BIAS_1_PI]) * theta.get(PVName.SPLAN_ART_COMPLIANCE) + theta.get(PVName.SPLAN_ART_ZPFV);
         p.volume[SPLANCHNIC_VENOUS_CPI] = Vsp + r.volume[2];
-        p.volume[LEG_ARTERIAL_CPI] = (p.pressure[LEG_ARTERIAL_CPI] - p.pressure[BIAS_2_PI]) * theta.get(PVName.LBODY_ART_COMPLIANCE) + theta.get(PVName.LBODY_ART_ZPFV);
+        p.volume[LEG_ARTERIAL_CPI] = (p.pressure[LEG_ARTERIAL_CPI] - p.pressure[BIAS_2_PI]) * theta.get(PVName.LEG_ART_COMPLIANCE) + theta.get(PVName.LBODY_ART_ZPFV);
         p.volume[LEG_VENOUS_CPI] = Vll + r.volume[3];
         p.volume[ABDOMINAL_VENOUS_CPI] = Vab + theta.get(PVName.ABDOM_VEN_ZPFV);
         p.volume[INFERIOR_VENA_CAVA_CPI] = (p.pressure[INFERIOR_VENA_CAVA_CPI] - p.pressure[INTRA_THORACIC_CPI]) * theta.get(PVName.IVC_COMPLIANCE) + theta.get(PVName.IVC_ZPFV);
@@ -325,12 +325,12 @@ class Equation {
         Vsp = 2.0 * theta.get(PVName.MAX_INCREASE_IN_SPLAN_DISTENDING_VOL) * atan(con * (p.pressure[SPLANCHNIC_VENOUS_CPI] - p.pressure[BIAS_1_PI])) / PI;
 
         if ((p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) > 0.0) {
-            con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-            Cll = theta.get(PVName.LBODY_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
+            con = PI * theta.get(PVName.LEG_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
+            Cll = theta.get(PVName.LEG_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
             Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI])) / PI;
         } else {
-            con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-            Cll = theta.get(PVName.LBODY_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
+            con = PI * theta.get(PVName.LEG_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
+            Cll = theta.get(PVName.LEG_VEN_COMPLIANCE) / (1.0 + con * con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]) * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI]));
             Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI])) / PI;
         }
 
@@ -360,7 +360,7 @@ class Equation {
                 + (p.pressure[SPLANCHNIC_ARTERIAL_CPI] - p.pressure[BIAS_1_PI]) * theta.get(PVName.SPLAN_ART_COMPLIANCE)
                 + p.pressure[UPPER_BODY_ARTERIAL_CPI] * theta.get(PVName.UBODY_ART_COMPLIANCE)
                 + p.pressure[UPPER_BODY_VENOUS_CPI] * theta.get(PVName.UBODY_VEN_COMPLIANCE)
-                + (p.pressure[LEG_ARTERIAL_CPI] - p.pressure[BIAS_2_PI]) * theta.get(PVName.LBODY_ART_COMPLIANCE));
+                + (p.pressure[LEG_ARTERIAL_CPI] - p.pressure[BIAS_2_PI]) * theta.get(PVName.LEG_ART_COMPLIANCE));
 
         // All volumes
         //  if ((i % 10) == 0)
