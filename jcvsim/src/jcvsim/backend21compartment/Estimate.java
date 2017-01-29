@@ -696,8 +696,8 @@ public class Estimate {
         out.pressure[RENAL_VENOUS_CPI] = b[8];
         out.pressure[SPLANCHNIC_ARTERIAL_CPI] = b[9];
         out.pressure[SPLANCHNIC_VENOUS_CPI] = b[10];
-        out.pressure[LOWER_BODY_ARTERIAL_CPI] = b[11];
-        out.pressure[LOWER_BODY_VENOUS_CPI] = b[12];
+        out.pressure[LEG_ARTERIAL_CPI] = b[11];
+        out.pressure[LEG_VENOUS_CPI] = b[12];
         out.pressure[ABDOMINAL_VENOUS_CPI] = b[13];
         out.pressure[INFERIOR_VENA_CAVA_CPI] = b[14];
         out.pressure[RIGHT_ATRIAL_CPI] = b[15];

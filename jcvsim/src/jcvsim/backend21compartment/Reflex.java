@@ -570,7 +570,7 @@ public class Reflex {
         Vsp = 2.0 * theta.get(PVName.MAX_INCREASE_IN_SPLAN_DISTENDING_VOL) * atan(con * (p.pressure[SPLANCHNIC_VENOUS_CPI] - p.pressure[BIAS_1_PI])) / PI;
 
         con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-        Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * (p.pressure[LOWER_BODY_VENOUS_CPI] - p.pressure[BIAS_2_PI])) / PI;
+        Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * (p.pressure[LEG_VENOUS_CPI] - p.pressure[BIAS_2_PI])) / PI;
 
         Vupold = r.volume[0];
         Vkold = r.volume[1];
@@ -592,7 +592,7 @@ public class Reflex {
 
         r.volume[3] = theta.get(PVName.LBODY_VEN_ZPFV) + theta.get(PVName.ABR_VEN_TONE_SYMPATHETIC_GAIN_TO_LOWER_BODY) * alpha_respv
                 + theta.get(PVName.CPR_VEN_SYMPATHETIC_GAIN_TO_LBODY) * alphav_respv;
-        p.pressure[LOWER_BODY_VENOUS_CPI] = tan(PI * (Vll + Vllold - r.volume[3]) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL)) / PI
+        p.pressure[LEG_VENOUS_CPI] = tan(PI * (Vll + Vllold - r.volume[3]) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL)) / PI
                 / theta.get(PVName.LBODY_VEN_COMPLIANCE) * 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) + p.pressure[BIAS_2_PI];
     }
 

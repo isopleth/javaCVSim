@@ -89,8 +89,8 @@ public class Rkqc {
         q_local.pressure[RENAL_VENOUS_CPI] += hh * q.dPressureDt[RENAL_VENOUS_CPI];
         q_local.pressure[SPLANCHNIC_ARTERIAL_CPI] += hh * q.dPressureDt[SPLANCHNIC_ARTERIAL_CPI];
         q_local.pressure[SPLANCHNIC_VENOUS_CPI] += hh * q.dPressureDt[SPLANCHNIC_VENOUS_CPI];
-        q_local.pressure[LOWER_BODY_ARTERIAL_CPI] += hh * q.dPressureDt[LOWER_BODY_ARTERIAL_CPI];
-        q_local.pressure[LOWER_BODY_VENOUS_CPI] += hh * q.dPressureDt[LOWER_BODY_VENOUS_CPI];
+        q_local.pressure[LEG_ARTERIAL_CPI] += hh * q.dPressureDt[LEG_ARTERIAL_CPI];
+        q_local.pressure[LEG_VENOUS_CPI] += hh * q.dPressureDt[LEG_VENOUS_CPI];
         q_local.pressure[ABDOMINAL_VENOUS_CPI] += hh * q.dPressureDt[ABDOMINAL_VENOUS_CPI];
         q_local.pressure[INFERIOR_VENA_CAVA_CPI] += hh * q.dPressureDt[INFERIOR_VENA_CAVA_CPI];
         q_local.pressure[RIGHT_ATRIAL_CPI] += hh * q.dPressureDt[RIGHT_ATRIAL_CPI];
@@ -123,8 +123,8 @@ public class Rkqc {
         q_local.pressure[RENAL_VENOUS_CPI] = q.pressure[RENAL_VENOUS_CPI] + hh * q_local.dPressureDt[RENAL_VENOUS_CPI];
         q_local.pressure[SPLANCHNIC_ARTERIAL_CPI] = q.pressure[SPLANCHNIC_ARTERIAL_CPI] + hh * q_local.dPressureDt[SPLANCHNIC_ARTERIAL_CPI];
         q_local.pressure[SPLANCHNIC_VENOUS_CPI] = q.pressure[SPLANCHNIC_VENOUS_CPI] + hh * q_local.dPressureDt[SPLANCHNIC_VENOUS_CPI];
-        q_local.pressure[LOWER_BODY_ARTERIAL_CPI] = q.pressure[LOWER_BODY_ARTERIAL_CPI] + hh * q_local.dPressureDt[LOWER_BODY_ARTERIAL_CPI];
-        q_local.pressure[LOWER_BODY_VENOUS_CPI] = q.pressure[LOWER_BODY_VENOUS_CPI] + hh * q_local.dPressureDt[LOWER_BODY_VENOUS_CPI];
+        q_local.pressure[LEG_ARTERIAL_CPI] = q.pressure[LEG_ARTERIAL_CPI] + hh * q_local.dPressureDt[LEG_ARTERIAL_CPI];
+        q_local.pressure[LEG_VENOUS_CPI] = q.pressure[LEG_VENOUS_CPI] + hh * q_local.dPressureDt[LEG_VENOUS_CPI];
         q_local.pressure[ABDOMINAL_VENOUS_CPI] = q.pressure[ABDOMINAL_VENOUS_CPI] + hh * q_local.dPressureDt[ABDOMINAL_VENOUS_CPI];
         q_local.pressure[INFERIOR_VENA_CAVA_CPI] = q.pressure[INFERIOR_VENA_CAVA_CPI] + hh * q_local.dPressureDt[INFERIOR_VENA_CAVA_CPI];
         q_local.pressure[RIGHT_ATRIAL_CPI] = q.pressure[RIGHT_ATRIAL_CPI] + hh * q_local.dPressureDt[RIGHT_ATRIAL_CPI];
@@ -155,8 +155,8 @@ public class Rkqc {
         p_local.pressure[RENAL_VENOUS_CPI] = q.pressure[RENAL_VENOUS_CPI] + h * p_local.dPressureDt[RENAL_VENOUS_CPI];
         p_local.pressure[SPLANCHNIC_ARTERIAL_CPI] = q.pressure[SPLANCHNIC_ARTERIAL_CPI] + h * p_local.dPressureDt[SPLANCHNIC_ARTERIAL_CPI];
         p_local.pressure[SPLANCHNIC_VENOUS_CPI] = q.pressure[SPLANCHNIC_VENOUS_CPI] + h * p_local.dPressureDt[SPLANCHNIC_VENOUS_CPI];
-        p_local.pressure[LOWER_BODY_ARTERIAL_CPI] = q.pressure[LOWER_BODY_ARTERIAL_CPI] + h * p_local.dPressureDt[LOWER_BODY_ARTERIAL_CPI];
-        p_local.pressure[LOWER_BODY_VENOUS_CPI] = q.pressure[LOWER_BODY_VENOUS_CPI] + h * p_local.dPressureDt[LOWER_BODY_VENOUS_CPI];
+        p_local.pressure[LEG_ARTERIAL_CPI] = q.pressure[LEG_ARTERIAL_CPI] + h * p_local.dPressureDt[LEG_ARTERIAL_CPI];
+        p_local.pressure[LEG_VENOUS_CPI] = q.pressure[LEG_VENOUS_CPI] + h * p_local.dPressureDt[LEG_VENOUS_CPI];
         p_local.pressure[ABDOMINAL_VENOUS_CPI] = q.pressure[ABDOMINAL_VENOUS_CPI] + h * p_local.dPressureDt[ABDOMINAL_VENOUS_CPI];
         p_local.pressure[INFERIOR_VENA_CAVA_CPI] = q.pressure[INFERIOR_VENA_CAVA_CPI] + h * p_local.dPressureDt[INFERIOR_VENA_CAVA_CPI];
         p_local.pressure[RIGHT_ATRIAL_CPI] = q.pressure[RIGHT_ATRIAL_CPI] + h * p_local.dPressureDt[RIGHT_ATRIAL_CPI];
@@ -177,8 +177,8 @@ public class Rkqc {
         q_local.dPressureDt[RENAL_VENOUS_CPI] += p_local.dPressureDt[RENAL_VENOUS_CPI];
         q_local.dPressureDt[SPLANCHNIC_ARTERIAL_CPI] += p_local.dPressureDt[SPLANCHNIC_ARTERIAL_CPI];
         q_local.dPressureDt[SPLANCHNIC_VENOUS_CPI] += p_local.dPressureDt[SPLANCHNIC_VENOUS_CPI];
-        q_local.dPressureDt[LOWER_BODY_ARTERIAL_CPI] += p_local.dPressureDt[LOWER_BODY_ARTERIAL_CPI];
-        q_local.dPressureDt[LOWER_BODY_VENOUS_CPI] += p_local.dPressureDt[LOWER_BODY_VENOUS_CPI];
+        q_local.dPressureDt[LEG_ARTERIAL_CPI] += p_local.dPressureDt[LEG_ARTERIAL_CPI];
+        q_local.dPressureDt[LEG_VENOUS_CPI] += p_local.dPressureDt[LEG_VENOUS_CPI];
         q_local.dPressureDt[ABDOMINAL_VENOUS_CPI] += p_local.dPressureDt[ABDOMINAL_VENOUS_CPI];
         q_local.dPressureDt[INFERIOR_VENA_CAVA_CPI] += p_local.dPressureDt[INFERIOR_VENA_CAVA_CPI];
         q_local.dPressureDt[RIGHT_ATRIAL_CPI] += p_local.dPressureDt[RIGHT_ATRIAL_CPI];
@@ -204,8 +204,8 @@ public class Rkqc {
         p_local.pressure[RENAL_VENOUS_CPI] = q.pressure[RENAL_VENOUS_CPI] + h6 * (q.dPressureDt[RENAL_VENOUS_CPI] + p_local.dPressureDt[RENAL_VENOUS_CPI] + 2.0 * q_local.dPressureDt[RENAL_VENOUS_CPI]);
         p_local.pressure[SPLANCHNIC_ARTERIAL_CPI] = q.pressure[SPLANCHNIC_ARTERIAL_CPI] + h6 * (q.dPressureDt[SPLANCHNIC_ARTERIAL_CPI] + p_local.dPressureDt[SPLANCHNIC_ARTERIAL_CPI] + 2.0 * q_local.dPressureDt[SPLANCHNIC_ARTERIAL_CPI]);
         p_local.pressure[SPLANCHNIC_VENOUS_CPI] = q.pressure[SPLANCHNIC_VENOUS_CPI] + h6 * (q.dPressureDt[SPLANCHNIC_VENOUS_CPI] + p_local.dPressureDt[SPLANCHNIC_VENOUS_CPI] + 2.0 * q_local.dPressureDt[SPLANCHNIC_VENOUS_CPI]);
-        p_local.pressure[LOWER_BODY_ARTERIAL_CPI] = q.pressure[LOWER_BODY_ARTERIAL_CPI] + h6 * (q.dPressureDt[LOWER_BODY_ARTERIAL_CPI] + p_local.dPressureDt[LOWER_BODY_ARTERIAL_CPI] + 2.0 * q_local.dPressureDt[LOWER_BODY_ARTERIAL_CPI]);
-        p_local.pressure[LOWER_BODY_VENOUS_CPI] = q.pressure[LOWER_BODY_VENOUS_CPI] + h6 * (q.dPressureDt[LOWER_BODY_VENOUS_CPI] + p_local.dPressureDt[LOWER_BODY_VENOUS_CPI] + 2.0 * q_local.dPressureDt[LOWER_BODY_VENOUS_CPI]);
+        p_local.pressure[LEG_ARTERIAL_CPI] = q.pressure[LEG_ARTERIAL_CPI] + h6 * (q.dPressureDt[LEG_ARTERIAL_CPI] + p_local.dPressureDt[LEG_ARTERIAL_CPI] + 2.0 * q_local.dPressureDt[LEG_ARTERIAL_CPI]);
+        p_local.pressure[LEG_VENOUS_CPI] = q.pressure[LEG_VENOUS_CPI] + h6 * (q.dPressureDt[LEG_VENOUS_CPI] + p_local.dPressureDt[LEG_VENOUS_CPI] + 2.0 * q_local.dPressureDt[LEG_VENOUS_CPI]);
         p_local.pressure[ABDOMINAL_VENOUS_CPI] = q.pressure[ABDOMINAL_VENOUS_CPI] + h6 * (q.dPressureDt[ABDOMINAL_VENOUS_CPI] + p_local.dPressureDt[ABDOMINAL_VENOUS_CPI] + 2.0 * q_local.dPressureDt[ABDOMINAL_VENOUS_CPI]);
         p_local.pressure[INFERIOR_VENA_CAVA_CPI] = q.pressure[INFERIOR_VENA_CAVA_CPI] + h6 * (q.dPressureDt[INFERIOR_VENA_CAVA_CPI] + p_local.dPressureDt[INFERIOR_VENA_CAVA_CPI] + 2.0 * q_local.dPressureDt[INFERIOR_VENA_CAVA_CPI]);
         p_local.pressure[RIGHT_ATRIAL_CPI] = q.pressure[RIGHT_ATRIAL_CPI] + h6 * (q.dPressureDt[RIGHT_ATRIAL_CPI] + p_local.dPressureDt[RIGHT_ATRIAL_CPI] + 2.0 * q_local.dPressureDt[RIGHT_ATRIAL_CPI]);
@@ -314,12 +314,12 @@ public class Rkqc {
             if (errmax < (temp = fabs(q.pressure[SPLANCHNIC_VENOUS_CPI] / yscal[10]))) {
                 errmax = temp;
             }
-            q.pressure[LOWER_BODY_ARTERIAL_CPI] -= p.pressure[LOWER_BODY_ARTERIAL_CPI];
-            if (errmax < (temp = fabs(q.pressure[LOWER_BODY_ARTERIAL_CPI] / yscal[11]))) {
+            q.pressure[LEG_ARTERIAL_CPI] -= p.pressure[LEG_ARTERIAL_CPI];
+            if (errmax < (temp = fabs(q.pressure[LEG_ARTERIAL_CPI] / yscal[11]))) {
                 errmax = temp;
             }
-            q.pressure[LOWER_BODY_VENOUS_CPI] -= p.pressure[LOWER_BODY_VENOUS_CPI];
-            if (errmax < (temp = fabs(q.pressure[LOWER_BODY_VENOUS_CPI] / yscal[12]))) {
+            q.pressure[LEG_VENOUS_CPI] -= p.pressure[LEG_VENOUS_CPI];
+            if (errmax < (temp = fabs(q.pressure[LEG_VENOUS_CPI] / yscal[12]))) {
                 errmax = temp;
             }
             q.pressure[ABDOMINAL_VENOUS_CPI] -= p.pressure[ABDOMINAL_VENOUS_CPI];
@@ -375,8 +375,8 @@ public class Rkqc {
         pres.pressure[RENAL_VENOUS_CPI] = p.pressure[RENAL_VENOUS_CPI] += q.pressure[RENAL_VENOUS_CPI] / 15.0;
         pres.pressure[SPLANCHNIC_ARTERIAL_CPI] = p.pressure[SPLANCHNIC_ARTERIAL_CPI] += q.pressure[SPLANCHNIC_ARTERIAL_CPI] / 15.0;
         pres.pressure[SPLANCHNIC_VENOUS_CPI] = p.pressure[SPLANCHNIC_VENOUS_CPI] += q.pressure[SPLANCHNIC_VENOUS_CPI] / 15.0;
-        pres.pressure[LOWER_BODY_ARTERIAL_CPI] = p.pressure[LOWER_BODY_ARTERIAL_CPI] += q.pressure[LOWER_BODY_ARTERIAL_CPI] / 15.0;
-        pres.pressure[LOWER_BODY_VENOUS_CPI] = p.pressure[LOWER_BODY_VENOUS_CPI] += q.pressure[LOWER_BODY_VENOUS_CPI] / 15.0;
+        pres.pressure[LEG_ARTERIAL_CPI] = p.pressure[LEG_ARTERIAL_CPI] += q.pressure[LEG_ARTERIAL_CPI] / 15.0;
+        pres.pressure[LEG_VENOUS_CPI] = p.pressure[LEG_VENOUS_CPI] += q.pressure[LEG_VENOUS_CPI] / 15.0;
         pres.pressure[ABDOMINAL_VENOUS_CPI] = p.pressure[ABDOMINAL_VENOUS_CPI] += q.pressure[ABDOMINAL_VENOUS_CPI] / 15.0;
         pres.pressure[INFERIOR_VENA_CAVA_CPI] = p.pressure[INFERIOR_VENA_CAVA_CPI] += q.pressure[INFERIOR_VENA_CAVA_CPI] / 15.0;
         pres.pressure[RIGHT_ATRIAL_CPI] = p.pressure[RIGHT_ATRIAL_CPI] += q.pressure[RIGHT_ATRIAL_CPI] / 15.0;
