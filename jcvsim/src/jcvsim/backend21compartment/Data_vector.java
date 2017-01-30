@@ -102,9 +102,9 @@ public class Data_vector {
         public static final int LEFT_VENTRICULAR_CPI = 20;
         // these are used for pressure, dPressureDt and flowRate but not
         // volume
-        public static final int BIAS_1_PI = 21;
-        public static final int BIAS_2_PI = 22;
-        public static final int BIAS_3_PI = 23;
+        public static final int BIAS_1_CPI = 21;
+        public static final int BIAS_2_CPI = 22;
+        public static final int BIAS_3_CPI = 23;
         // This index is used for pressure, dPressureDt, but not for
         // flowRate or volume
         public static final int INTRA_THORACIC_CPI = 24;

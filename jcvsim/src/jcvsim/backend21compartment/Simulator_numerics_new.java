@@ -136,7 +136,7 @@ public class Simulator_numerics_new {
             pvp_mean += p.pressure[PULMONARY_VENOUS_CPI] * hdid;
 
             // Stroke volume
-            sv += p.flowRate[BIAS_3_PI] * hdid;
+            sv += p.flowRate[BIAS_3_CPI] * hdid;
 
             dtime += hdid;
         }

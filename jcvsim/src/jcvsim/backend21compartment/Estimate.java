@@ -712,9 +712,9 @@ public class Estimate {
         out.compliance[LV_END_SYSTOLIC_COMPL] = theta.get(PVName.LV_SYSTOLIC_COMPLIANCE);
 
         // Bias pressures and intrathoracic pressure.
-        out.pressure[BIAS_1_PI] = out.dPressureDt[BIAS_1_PI] = 0.0;
-        out.pressure[BIAS_2_PI] = out.dPressureDt[BIAS_2_PI] = 0.0;
-        out.pressure[BIAS_3_PI] = out.dPressureDt[BIAS_3_PI] = 0.0;
+        out.pressure[BIAS_1_CPI] = out.dPressureDt[BIAS_1_CPI] = 0.0;
+        out.pressure[BIAS_2_CPI] = out.dPressureDt[BIAS_2_CPI] = 0.0;
+        out.pressure[BIAS_3_CPI] = out.dPressureDt[BIAS_3_CPI] = 0.0;
         out.pressure[INTRA_THORACIC_CPI] = theta.get(PVName.INTRA_THORACIC_PRESSURE);
         out.dPressureDt[INTRA_THORACIC_CPI] = 0.0;
 
