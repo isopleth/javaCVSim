@@ -67,7 +67,7 @@ public enum PVName {
     UBODY_VEN_COMPLIANCE, // Original C code array index 36
     RENAL_VEN_COMPLIANCE, // Original C code array index 37
     SPLAN_VEN_COMPLIANCE, // Original C code array index 38
-    LEG_VEN_COMPLIANCE, // Original C code array index 39
+    LBODY_VEN_COMPLIANCE, // Original C code array index 39
     ABDOM_VEN_COMPLIANCE, // Original C code array index 40
     IVC_COMPLIANCE, // Original C code array index 41
     SVC_COMPLIANCE, // Original C code array index 42
@@ -87,8 +87,8 @@ public enum PVName {
     RENAL_VEN_RESISTANCE, // Original C code array index 56
     SPLAN_MICRO_RESISTANCE, // Original C code array index 57
     SPLAN_VEN_RESISTANCE, // Original C code array index 58
-    LEG_MICRO_RESISTANCE, // Original C code array index 59
-    LEG_VEN_RESISTANCE, // Original C code array index 60
+    LBODY_MICRO_RESISTANCE, // Original C code array index 59
+    LBODY_VEN_RESISTANCE, // Original C code array index 60
     ABDOM_VEN_RESISTANCE, // Original C code array index 61
     IVC_RESISTANCE, // Original C code array index 62
     SVC_RESISTANCE, // Original C code array index 63
@@ -132,14 +132,14 @@ public enum PVName {
     ABDOM_AORTA_COMPLIANCE, // Original C code array index 101
     RENAL_ART_COMPLIANCE, // Original C code array index 102
     SPLAN_ART_COMPLIANCE, // Original C code array index 103
-    LEG_ART_COMPLIANCE, // Original C code array index 104
+    LBODY_ART_COMPLIANCE, // Original C code array index 104
     BRACH_ART_RESISTANCE, // Original C code array index 105
     UBODY_ART_RESISTANCE, // Original C code array index 106
     THORACIC_AORTA_RESISTANCE, // Original C code array index 107
     ABDOM_AORTA_RESISTANCE, // Original C code array index 108
     RENAL_ART_RESISTANCE, // Original C code array index 109
     SPLAN_ART_RESISTANCE, // Original C code array index 110
-    LEG_ART_RESISTANCE, // Original C code array index 111
+    LBODY_ART_RESISTANCE, // Original C code array index 111
     ABR_ALPHA_SYMP_VEN_DELAY, // Original C code array index 112
     ABR_ALPHA_SYMP_VEN_PEAK, // Original C code array index 113
     ABR_ALPHA_SYMP_VEN_END, // Original C code array index 114
@@ -160,8 +160,8 @@ public enum PVName {
     RENAL_VEN_HEIGHT, // Original C code array index 129
     SPLAN_ART_HEIGHT, // Original C code array index 130
     SPLAN_VEIN_HEIGHT, // Original C code array index 131
-    LEG_ART_HEIGHT, // Original C code array index 132
-    LEG_VEN_HEIGHT, // Original C code array index 133
+    LBODY_ART_HEIGHT, // Original C code array index 132
+    LBODY_VEN_HEIGHT, // Original C code array index 133
     ABDOM_IVC_HEIGHT, // Original C code array index 134
     THORACIC_IVC_HEIGHT, // Original C code array index 135
     ASCENDING_AORTA_VOLUME, // Original C code array index 136

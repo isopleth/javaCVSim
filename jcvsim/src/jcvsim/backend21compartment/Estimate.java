@@ -66,8 +66,8 @@ public class Estimate {
         a[8][0] = theta.get(PVName.RENAL_VEN_COMPLIANCE);           // Renal veins
         a[9][0] = theta.get(PVName.SPLAN_ART_COMPLIANCE);          // Splanchnic arteries
         a[10][0] = theta.get(PVName.SPLAN_VEN_COMPLIANCE);           // Splanchnic veins
-        a[11][0] = theta.get(PVName.LEG_ART_COMPLIANCE);           // Leg arteries
-        a[12][0] = theta.get(PVName.LEG_VEN_COMPLIANCE);           // Leg veins
+        a[11][0] = theta.get(PVName.LBODY_ART_COMPLIANCE);           // Leg arteries
+        a[12][0] = theta.get(PVName.LBODY_VEN_COMPLIANCE);           // Leg veins
         a[13][0] = theta.get(PVName.ABDOM_VEN_COMPLIANCE);           // Abdominal veins
         a[14][0] = theta.get(PVName.IVC_COMPLIANCE);           // Vena cava inf. 
         a[15][0] = theta.get(PVName.RA_DIASTOLIC_COMPLIANCE);           // Right atrium
@@ -211,12 +211,12 @@ public class Estimate {
         a[3][6] = 0.;
         a[4][6] = 0.;
         a[5][6] = -1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE);
-        a[6][6] = 1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE) + 1. / theta.get(PVName.RENAL_ART_RESISTANCE) + 1. / theta.get(PVName.SPLAN_ART_RESISTANCE) + 1. / theta.get(PVName.LEG_ART_RESISTANCE);
+        a[6][6] = 1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE) + 1. / theta.get(PVName.RENAL_ART_RESISTANCE) + 1. / theta.get(PVName.SPLAN_ART_RESISTANCE) + 1. / theta.get(PVName.LBODY_ART_RESISTANCE);
         a[7][6] = -1. / theta.get(PVName.RENAL_ART_RESISTANCE);
         a[8][6] = 0.;
         a[9][6] = -1. / theta.get(PVName.SPLAN_ART_RESISTANCE);
         a[10][6] = 0.;
-        a[11][6] = -1. / theta.get(PVName.LEG_ART_RESISTANCE);
+        a[11][6] = -1. / theta.get(PVName.LBODY_ART_RESISTANCE);
         a[12][6] = 0.;
         a[13][6] = 0.;
         a[14][6] = 0.;
@@ -336,13 +336,13 @@ public class Estimate {
         a[3][11] = 0.;
         a[4][11] = 0.;
         a[5][11] = 0.;
-        a[6][11] = -1. / theta.get(PVName.LEG_ART_RESISTANCE);
+        a[6][11] = -1. / theta.get(PVName.LBODY_ART_RESISTANCE);
         a[7][11] = 0.;
         a[8][11] = 0.;
         a[9][11] = 0.;
         a[10][11] = 0.;
-        a[11][11] = 1. / theta.get(PVName.LEG_ART_RESISTANCE) + 1. / theta.get(PVName.LEG_MICRO_RESISTANCE);
-        a[12][11] = -1. / theta.get(PVName.LEG_MICRO_RESISTANCE);
+        a[11][11] = 1. / theta.get(PVName.LBODY_ART_RESISTANCE) + 1. / theta.get(PVName.LBODY_MICRO_RESISTANCE);
+        a[12][11] = -1. / theta.get(PVName.LBODY_MICRO_RESISTANCE);
         a[13][11] = 0.;
         a[14][11] = 0.;
         a[15][11] = 0.;
@@ -366,9 +366,9 @@ public class Estimate {
         a[8][12] = 0.;
         a[9][12] = 0.;
         a[10][12] = 0.;
-        a[11][12] = -1. / theta.get(PVName.LEG_MICRO_RESISTANCE);
-        a[12][12] = 1. / theta.get(PVName.LEG_MICRO_RESISTANCE) + 1. / theta.get(PVName.LEG_VEN_RESISTANCE);
-        a[13][12] = -1. / theta.get(PVName.LEG_VEN_RESISTANCE);
+        a[11][12] = -1. / theta.get(PVName.LBODY_MICRO_RESISTANCE);
+        a[12][12] = 1. / theta.get(PVName.LBODY_MICRO_RESISTANCE) + 1. / theta.get(PVName.LBODY_VEN_RESISTANCE);
+        a[13][12] = -1. / theta.get(PVName.LBODY_VEN_RESISTANCE);
         a[14][12] = 0.;
         a[15][12] = 0.;
         a[16][12] = 0.;
@@ -392,8 +392,8 @@ public class Estimate {
         a[9][13] = 0.;
         a[10][13] = -1. / theta.get(PVName.SPLAN_VEN_RESISTANCE);
         a[11][13] = 0.;
-        a[12][13] = -1. / theta.get(PVName.LEG_VEN_RESISTANCE);
-        a[13][13] = 1. / theta.get(PVName.RENAL_VEN_RESISTANCE) + 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE) + 1. / theta.get(PVName.LEG_VEN_RESISTANCE) + 1. / theta.get(PVName.ABDOM_VEN_RESISTANCE);
+        a[12][13] = -1. / theta.get(PVName.LBODY_VEN_RESISTANCE);
+        a[13][13] = 1. / theta.get(PVName.RENAL_VEN_RESISTANCE) + 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE) + 1. / theta.get(PVName.LBODY_VEN_RESISTANCE) + 1. / theta.get(PVName.ABDOM_VEN_RESISTANCE);
         a[14][13] = -1. / theta.get(PVName.ABDOM_VEN_RESISTANCE);
         a[15][13] = 0.;
         a[16][13] = 0.;
@@ -696,8 +696,8 @@ public class Estimate {
         out.pressure[RENAL_VENOUS_CPI] = b[8];
         out.pressure[SPLANCHNIC_ARTERIAL_CPI] = b[9];
         out.pressure[SPLANCHNIC_VENOUS_CPI] = b[10];
-        out.pressure[LEG_ARTERIAL_CPI] = b[11];
-        out.pressure[LEG_VENOUS_CPI] = b[12];
+        out.pressure[LBODY_ARTERIAL_CPI] = b[11];
+        out.pressure[LBODY_VENOUS_CPI] = b[12];
         out.pressure[ABDOMINAL_VENOUS_CPI] = b[13];
         out.pressure[INFERIOR_VENA_CAVA_CPI] = b[14];
         out.pressure[RIGHT_ATRIAL_CPI] = b[15];
@@ -764,7 +764,7 @@ public class Estimate {
         ref.resistance[0] = theta.get(PVName.UBODY_MICRO_RESISTANCE);
         ref.resistance[1] = theta.get(PVName.RENAL_MICRO_RESISTANCE);
         ref.resistance[2] = theta.get(PVName.SPLAN_MICRO_RESISTANCE);
-        ref.resistance[3] = theta.get(PVName.LEG_MICRO_RESISTANCE);
+        ref.resistance[3] = theta.get(PVName.LBODY_MICRO_RESISTANCE);
 
         ref.volume[0] = theta.get(PVName.UBODY_VEN_ZPFV);
         ref.volume[1] = theta.get(PVName.RENAL_VEN_ZPFV);
@@ -803,8 +803,8 @@ public class Estimate {
         Csp = theta.get(PVName.SPLAN_VEN_COMPLIANCE) / (1.0 + con * con * b[10] * b[10]);
         Vsp = 2.0 * theta.get(PVName.MAX_INCREASE_IN_SPLAN_DISTENDING_VOL) * atan(con * b[10]) / PI;
 
-        con = PI * theta.get(PVName.LEG_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-        Cll = theta.get(PVName.LEG_VEN_COMPLIANCE) / (1.0 + con * con * b[12] * b[12]);
+        con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
+        Cll = theta.get(PVName.LBODY_VEN_COMPLIANCE) / (1.0 + con * con * b[12] * b[12]);
         Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * b[12]) / PI;
 
         con = PI * theta.get(PVName.ABDOM_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_ABDOM_DISTENDING_VOL);
@@ -826,7 +826,7 @@ public class Estimate {
                 + theta.get(PVName.PULM_ART_COMPLIANCE) * b[18] + theta.get(PVName.PULM_VEN_COMPLIANCE) * b[19] + theta.get(PVName.LA_DIASTOLIC_COMPLIANCE) * b[20]
                 + theta.get(PVName.LV_DIASTOLIC_COMPLIANCE) * b[21] + theta.get(PVName.ASCENDING_AORTA_COMPLIANCE) * b[0] + theta.get(PVName.BRACH_ART_COMPLIANCE) * b[1]
                 + theta.get(PVName.UBODY_ART_COMPLIANCE) * b[2] + theta.get(PVName.THORACIC_AORTA_COMPLIANCE) * b[5] + theta.get(PVName.ABDOM_AORTA_COMPLIANCE) * b[6]
-                + theta.get(PVName.RENAL_ART_COMPLIANCE) * b[7] + theta.get(PVName.SPLAN_ART_COMPLIANCE) * b[9] + theta.get(PVName.LEG_ART_COMPLIANCE) * b[11]);
+                + theta.get(PVName.RENAL_ART_COMPLIANCE) * b[7] + theta.get(PVName.SPLAN_ART_COMPLIANCE) * b[9] + theta.get(PVName.LBODY_ART_COMPLIANCE) * b[11]);
 
         F[1] = (-1. / theta.get(PVName.BRACH_ART_RESISTANCE) - 1. / theta.get(PVName.THORACIC_AORTA_RESISTANCE) - Tsys / T / theta.get(PVName.AORTIC_VALVE_RESISTANCE)) * b[0]
                 + b[1] / theta.get(PVName.BRACH_ART_RESISTANCE) + b[5] / theta.get(PVName.THORACIC_AORTA_RESISTANCE) + Tsys / T / theta.get(PVName.AORTIC_VALVE_RESISTANCE) * b[22];
@@ -843,8 +843,8 @@ public class Estimate {
         F[5] = (-1. / theta.get(PVName.THORACIC_AORTA_RESISTANCE) - 1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE)) * b[5] + b[0] / theta.get(PVName.THORACIC_AORTA_RESISTANCE)
                 + b[6] / theta.get(PVName.ABDOM_AORTA_RESISTANCE);
 
-        F[6] = b[7] / theta.get(PVName.RENAL_ART_RESISTANCE) + b[9] / theta.get(PVName.SPLAN_ART_RESISTANCE) + b[11] / theta.get(PVName.LEG_ART_RESISTANCE)
-                - (1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE) + 1. / theta.get(PVName.RENAL_ART_RESISTANCE) + 1. / theta.get(PVName.SPLAN_ART_RESISTANCE) + 1. / theta.get(PVName.LEG_ART_RESISTANCE))
+        F[6] = b[7] / theta.get(PVName.RENAL_ART_RESISTANCE) + b[9] / theta.get(PVName.SPLAN_ART_RESISTANCE) + b[11] / theta.get(PVName.LBODY_ART_RESISTANCE)
+                - (1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE) + 1. / theta.get(PVName.RENAL_ART_RESISTANCE) + 1. / theta.get(PVName.SPLAN_ART_RESISTANCE) + 1. / theta.get(PVName.LBODY_ART_RESISTANCE))
                 * b[6] + b[5] / theta.get(PVName.ABDOM_AORTA_RESISTANCE);
 
         F[7] = (-1. / theta.get(PVName.RENAL_ART_RESISTANCE) - 1. / theta.get(PVName.RENAL_MICRO_RESISTANCE)) * b[7] + b[6] / theta.get(PVName.RENAL_ART_RESISTANCE)
@@ -859,14 +859,14 @@ public class Estimate {
         F[10] = (-1. / theta.get(PVName.SPLAN_MICRO_RESISTANCE) - 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE)) * b[10] + b[9] / theta.get(PVName.SPLAN_MICRO_RESISTANCE)
                 + b[13] / theta.get(PVName.SPLAN_VEN_RESISTANCE);
 
-        F[11] = (-1. / theta.get(PVName.LEG_ART_RESISTANCE) - 1. / theta.get(PVName.LEG_MICRO_RESISTANCE)) * b[11] + b[6] / theta.get(PVName.LEG_ART_RESISTANCE)
-                + b[12] / theta.get(PVName.LEG_MICRO_RESISTANCE);
+        F[11] = (-1. / theta.get(PVName.LBODY_ART_RESISTANCE) - 1. / theta.get(PVName.LBODY_MICRO_RESISTANCE)) * b[11] + b[6] / theta.get(PVName.LBODY_ART_RESISTANCE)
+                + b[12] / theta.get(PVName.LBODY_MICRO_RESISTANCE);
 
-        F[12] = (-1. / theta.get(PVName.LEG_MICRO_RESISTANCE) - 1. / theta.get(PVName.LEG_VEN_RESISTANCE)) * b[12] + b[11] / theta.get(PVName.LEG_MICRO_RESISTANCE)
-                + b[13] / theta.get(PVName.LEG_VEN_RESISTANCE);
+        F[12] = (-1. / theta.get(PVName.LBODY_MICRO_RESISTANCE) - 1. / theta.get(PVName.LBODY_VEN_RESISTANCE)) * b[12] + b[11] / theta.get(PVName.LBODY_MICRO_RESISTANCE)
+                + b[13] / theta.get(PVName.LBODY_VEN_RESISTANCE);
 
-        F[13] = b[12] / theta.get(PVName.LEG_VEN_RESISTANCE) + b[10] / theta.get(PVName.SPLAN_VEN_RESISTANCE) + b[8] / theta.get(PVName.RENAL_VEN_RESISTANCE)
-                - (1. / theta.get(PVName.RENAL_VEN_RESISTANCE) + 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE) + 1. / theta.get(PVName.LEG_VEN_RESISTANCE) + 1. / theta.get(PVName.ABDOM_VEN_RESISTANCE)) * b[13]
+        F[13] = b[12] / theta.get(PVName.LBODY_VEN_RESISTANCE) + b[10] / theta.get(PVName.SPLAN_VEN_RESISTANCE) + b[8] / theta.get(PVName.RENAL_VEN_RESISTANCE)
+                - (1. / theta.get(PVName.RENAL_VEN_RESISTANCE) + 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE) + 1. / theta.get(PVName.LBODY_VEN_RESISTANCE) + 1. / theta.get(PVName.ABDOM_VEN_RESISTANCE)) * b[13]
                 + b[14] / theta.get(PVName.ABDOM_VEN_RESISTANCE);
 
         F[14] = (-1. / theta.get(PVName.ABDOM_VEN_RESISTANCE) - 1. / theta.get(PVName.IVC_RESISTANCE)) * b[14] + b[13] / theta.get(PVName.ABDOM_VEN_RESISTANCE)
@@ -909,7 +909,7 @@ public class Estimate {
         a[9][0] = theta.get(PVName.SPLAN_ART_COMPLIANCE);           // Splanchnic arteries
         //  a[10][0] = theta.get(PVName.PV38);           // Splanchnic veins
         a[10][0] = Csp;           // Splanchnic veins
-        a[11][0] = theta.get(PVName.LEG_ART_COMPLIANCE);                     // Leg arteries
+        a[11][0] = theta.get(PVName.LBODY_ART_COMPLIANCE);                     // Leg arteries
         a[12][0] = Cll;                     // Leg veins
         a[13][0] = Cab;                     // Abdominal veins
         a[14][0] = theta.get(PVName.IVC_COMPLIANCE);           // Vena cava inf. 
@@ -1054,12 +1054,12 @@ public class Estimate {
         a[3][6] = 0.;
         a[4][6] = 0.;
         a[5][6] = -1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE);
-        a[6][6] = 1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE) + 1. / theta.get(PVName.RENAL_ART_RESISTANCE) + 1. / theta.get(PVName.SPLAN_ART_RESISTANCE) + 1. / theta.get(PVName.LEG_ART_RESISTANCE);
+        a[6][6] = 1. / theta.get(PVName.ABDOM_AORTA_RESISTANCE) + 1. / theta.get(PVName.RENAL_ART_RESISTANCE) + 1. / theta.get(PVName.SPLAN_ART_RESISTANCE) + 1. / theta.get(PVName.LBODY_ART_RESISTANCE);
         a[7][6] = -1. / theta.get(PVName.RENAL_ART_RESISTANCE);
         a[8][6] = 0.;
         a[9][6] = -1. / theta.get(PVName.SPLAN_ART_RESISTANCE);
         a[10][6] = 0.;
-        a[11][6] = -1. / theta.get(PVName.LEG_ART_RESISTANCE);
+        a[11][6] = -1. / theta.get(PVName.LBODY_ART_RESISTANCE);
         a[12][6] = 0.;
         a[13][6] = 0.;
         a[14][6] = 0.;
@@ -1179,13 +1179,13 @@ public class Estimate {
         a[3][11] = 0.;
         a[4][11] = 0.;
         a[5][11] = 0.;
-        a[6][11] = -1. / theta.get(PVName.LEG_ART_RESISTANCE);
+        a[6][11] = -1. / theta.get(PVName.LBODY_ART_RESISTANCE);
         a[7][11] = 0.;
         a[8][11] = 0.;
         a[9][11] = 0.;
         a[10][11] = 0.;
-        a[11][11] = 1. / theta.get(PVName.LEG_ART_RESISTANCE) + 1. / theta.get(PVName.LEG_MICRO_RESISTANCE);
-        a[12][11] = -1. / theta.get(PVName.LEG_MICRO_RESISTANCE);
+        a[11][11] = 1. / theta.get(PVName.LBODY_ART_RESISTANCE) + 1. / theta.get(PVName.LBODY_MICRO_RESISTANCE);
+        a[12][11] = -1. / theta.get(PVName.LBODY_MICRO_RESISTANCE);
         a[13][11] = 0.;
         a[14][11] = 0.;
         a[15][11] = 0.;
@@ -1209,9 +1209,9 @@ public class Estimate {
         a[8][12] = 0.;
         a[9][12] = 0.;
         a[10][12] = 0.;
-        a[11][12] = -1. / theta.get(PVName.LEG_MICRO_RESISTANCE);
-        a[12][12] = 1. / theta.get(PVName.LEG_MICRO_RESISTANCE) + 1. / theta.get(PVName.LEG_VEN_RESISTANCE);
-        a[13][12] = -1. / theta.get(PVName.LEG_VEN_RESISTANCE);
+        a[11][12] = -1. / theta.get(PVName.LBODY_MICRO_RESISTANCE);
+        a[12][12] = 1. / theta.get(PVName.LBODY_MICRO_RESISTANCE) + 1. / theta.get(PVName.LBODY_VEN_RESISTANCE);
+        a[13][12] = -1. / theta.get(PVName.LBODY_VEN_RESISTANCE);
         a[14][12] = 0.;
         a[15][12] = 0.;
         a[16][12] = 0.;
@@ -1235,8 +1235,8 @@ public class Estimate {
         a[9][13] = 0.;
         a[10][13] = -1. / theta.get(PVName.SPLAN_VEN_RESISTANCE);
         a[11][13] = 0.;
-        a[12][13] = -1. / theta.get(PVName.LEG_VEN_RESISTANCE);
-        a[13][13] = 1. / theta.get(PVName.RENAL_VEN_RESISTANCE) + 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE) + 1. / theta.get(PVName.LEG_VEN_RESISTANCE) + 1. / theta.get(PVName.ABDOM_VEN_RESISTANCE);
+        a[12][13] = -1. / theta.get(PVName.LBODY_VEN_RESISTANCE);
+        a[13][13] = 1. / theta.get(PVName.RENAL_VEN_RESISTANCE) + 1. / theta.get(PVName.SPLAN_VEN_RESISTANCE) + 1. / theta.get(PVName.LBODY_VEN_RESISTANCE) + 1. / theta.get(PVName.ABDOM_VEN_RESISTANCE);
         a[14][13] = -1. / theta.get(PVName.ABDOM_VEN_RESISTANCE);
         a[15][13] = 0.;
         a[16][13] = 0.;
@@ -1508,8 +1508,8 @@ public class Estimate {
         Csp = theta.get(PVName.SPLAN_VEN_COMPLIANCE) / (1.0 + con * con * b[10] * b[10]);
         Vsp = 2.0 * theta.get(PVName.MAX_INCREASE_IN_SPLAN_DISTENDING_VOL) * atan(con * b[10]) / PI;
 
-        con = PI * theta.get(PVName.LEG_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
-        Cll = theta.get(PVName.LEG_VEN_COMPLIANCE) / (1.0 + con * con * b[12] * b[12]);
+        con = PI * theta.get(PVName.LBODY_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL);
+        Cll = theta.get(PVName.LBODY_VEN_COMPLIANCE) / (1.0 + con * con * b[12] * b[12]);
         Vll = 2.0 * theta.get(PVName.MAX_INCREASE_IN_LEG_DISTENDING_VOL) * atan(con * b[12]) / PI;
 
         con = PI * theta.get(PVName.ABDOM_VEN_COMPLIANCE) / 2.0 / theta.get(PVName.MAX_INCREASE_IN_ABDOM_DISTENDING_VOL);
@@ -1530,7 +1530,7 @@ public class Estimate {
                 + theta.get(PVName.PULM_ART_COMPLIANCE) * b[18] + theta.get(PVName.PULM_VEN_COMPLIANCE) * b[19] + theta.get(PVName.LA_DIASTOLIC_COMPLIANCE) * b[20]
                 + theta.get(PVName.LV_DIASTOLIC_COMPLIANCE) * b[21] + theta.get(PVName.ASCENDING_AORTA_COMPLIANCE) * b[0] + theta.get(PVName.BRACH_ART_COMPLIANCE) * b[1]
                 + theta.get(PVName.UBODY_ART_COMPLIANCE) * b[2] + theta.get(PVName.THORACIC_AORTA_COMPLIANCE) * b[5] + theta.get(PVName.ABDOM_AORTA_COMPLIANCE) * b[6]
-                + theta.get(PVName.RENAL_ART_COMPLIANCE) * b[7] + theta.get(PVName.SPLAN_ART_COMPLIANCE) * b[9] + theta.get(PVName.LEG_ART_COMPLIANCE) * b[11]);
+                + theta.get(PVName.RENAL_ART_COMPLIANCE) * b[7] + theta.get(PVName.SPLAN_ART_COMPLIANCE) * b[9] + theta.get(PVName.LBODY_ART_COMPLIANCE) * b[11]);
 
         return vol_error;
     }

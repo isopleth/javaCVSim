@@ -129,9 +129,9 @@ public class Parameter21C extends Parameter {
         } else if (getName().equals("Abdominal Veins Compliance")) {
             Main.instance().updateComplianceOutsideThorax(value, paramVec, PVName.ABDOM_VEN_COMPLIANCE, 13);
         } else if (getName().equals("Lower Body Arteries Compliance")) {
-            Main.instance().updateComplianceOutsideThorax(value, paramVec, PVName.LEG_ART_COMPLIANCE, 11);
+            Main.instance().updateComplianceOutsideThorax(value, paramVec, PVName.LBODY_ART_COMPLIANCE, 11);
         } else if (getName().equals("Lower Body Veins Compliance")) {
-            Main.instance().updateComplianceOutsideThorax(value, paramVec, PVName.LEG_VEN_COMPLIANCE, 12);
+            Main.instance().updateComplianceOutsideThorax(value, paramVec, PVName.LBODY_VEN_COMPLIANCE, 12);
         } else if (getName().equals("Renal Arteries Compliance")) {
             Main.instance().updateComplianceOutsideThorax(value, paramVec, PVName.RENAL_ART_COMPLIANCE, 7);
         } else if (getName().equals("Renal Veins Compliance")) {
@@ -162,9 +162,9 @@ public class Parameter21C extends Parameter {
         } else if (getName().equals("Inferior Vena Cava Zero-Pressure Filling Volume")) {
             Main.instance().updateZeroPressureFillingVolume(value, paramVec, PVName.IVC_ZPFV, PVName.IVC_COMPLIANCE, 14);
         } else if (getName().equals("Lower Body Arteries Zero-Pressure Filling Volume")) {
-            Main.instance().updateZeroPressureFillingVolume(value, paramVec, PVName.LBODY_ART_ZPFV, PVName.LEG_ART_COMPLIANCE, 11);
+            Main.instance().updateZeroPressureFillingVolume(value, paramVec, PVName.LBODY_ART_ZPFV, PVName.LBODY_ART_COMPLIANCE, 11);
         } else if (getName().equals("Lower Body Veins Zero-Pressure Filling Volume")) {
-            Main.instance().updateZeroPressureFillingVolume(value, paramVec, PVName.LBODY_VEN_ZPFV, PVName.LEG_VEN_COMPLIANCE, 12);
+            Main.instance().updateZeroPressureFillingVolume(value, paramVec, PVName.LBODY_VEN_ZPFV, PVName.LBODY_VEN_COMPLIANCE, 12);
         } else if (getName().equals("Renal Arteries Zero-Pressure Filling Volume")) {
             Main.instance().updateZeroPressureFillingVolume(value, paramVec, PVName.RENAL_ART_ZPFV, PVName.RENAL_ART_COMPLIANCE, 7);
         } else if (getName().equals("Renal Veins Zero-Pressure Filling Volume")) {

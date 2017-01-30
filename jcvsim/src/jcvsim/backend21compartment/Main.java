@@ -241,8 +241,8 @@ public class Main {
             renalVenousPressure[index] = pressure.pressure[RENAL_VENOUS_CPI];
             splanchnicArterialPressure[index] = pressure.pressure[SPLANCHNIC_ARTERIAL_CPI];
             splanchnicVenousPressure[index] = pressure.pressure[SPLANCHNIC_VENOUS_CPI];
-            lowerBodyArterialPressure[index] = pressure.pressure[LEG_ARTERIAL_CPI];
-            lowerBodyVenousPressure[index] = pressure.pressure[LEG_VENOUS_CPI];
+            lowerBodyArterialPressure[index] = pressure.pressure[LBODY_ARTERIAL_CPI];
+            lowerBodyVenousPressure[index] = pressure.pressure[LBODY_VENOUS_CPI];
             abdominalVenousPressure[index] = pressure.pressure[ABDOMINAL_VENOUS_CPI];
             inferiorVenaCavaPressure[index] = pressure.pressure[INFERIOR_VENA_CAVA_CPI];
             rightAtrialPressure[index] = pressure.pressure[RIGHT_ATRIAL_CPI];
@@ -263,8 +263,8 @@ public class Main {
             renalVenousFlow[index] = pressure.flowRate[RENAL_VENOUS_CPI];
             splanchnicArterialFlow[index] = pressure.flowRate[SPLANCHNIC_ARTERIAL_CPI];
             splanchnicVenousFlow[index] = pressure.flowRate[SPLANCHNIC_VENOUS_CPI];
-            lowerBodyArterialFlow[index] = pressure.flowRate[LEG_ARTERIAL_CPI];
-            lowerBodyVenousFlow[index] = pressure.flowRate[LEG_VENOUS_CPI];
+            lowerBodyArterialFlow[index] = pressure.flowRate[LBODY_ARTERIAL_CPI];
+            lowerBodyVenousFlow[index] = pressure.flowRate[LBODY_VENOUS_CPI];
             abdominalVenousFlow[index] = pressure.flowRate[ABDOMINAL_VENOUS_CPI];
             inferiorVenaCavaFlow[index] = pressure.flowRate[INFERIOR_VENA_CAVA_CPI];
             rightAtrialFlow[index] = pressure.flowRate[RIGHT_ATRIAL_CPI];
@@ -285,8 +285,8 @@ public class Main {
             renalVenousVolume[index] = pressure.volume[RENAL_VENOUS_CPI];
             splanchnicArterialVolume[index] = pressure.volume[SPLANCHNIC_ARTERIAL_CPI];
             splanchnicVenousVolume[index] = pressure.volume[SPLANCHNIC_VENOUS_CPI];
-            lowerBodyArterialVolume[index] = pressure.volume[LEG_ARTERIAL_CPI];
-            lowerBodyVenousVolume[index] = pressure.volume[LEG_VENOUS_CPI];
+            lowerBodyArterialVolume[index] = pressure.volume[LBODY_ARTERIAL_CPI];
+            lowerBodyVenousVolume[index] = pressure.volume[LBODY_VENOUS_CPI];
             abdominalVenousVolume[index] = pressure.volume[ABDOMINAL_VENOUS_CPI];
             inferiorVenaCavaVolume[index] = pressure.volume[INFERIOR_VENA_CAVA_CPI];
             rightAtrialVolume[index] = pressure.volume[RIGHT_ATRIAL_CPI];

@@ -90,8 +90,8 @@ public class Data_vector {
         public static final int RENAL_VENOUS_CPI = 8;
         public static final int SPLANCHNIC_ARTERIAL_CPI = 9;
         public static final int SPLANCHNIC_VENOUS_CPI = 10;
-        public static final int LEG_ARTERIAL_CPI = 11;
-        public static final int LEG_VENOUS_CPI = 12;
+        public static final int LBODY_ARTERIAL_CPI = 11;
+        public static final int LBODY_VENOUS_CPI = 12;
         public static final int ABDOMINAL_VENOUS_CPI = 13;
         public static final int INFERIOR_VENA_CAVA_CPI = 14;
         public static final int RIGHT_ATRIAL_CPI = 15;
