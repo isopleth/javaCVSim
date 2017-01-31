@@ -1,58 +1,40 @@
 package edu.mit.lcp;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.JSplitPane;
-import java.awt.Dimension;
-import java.awt.Color;
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
-import javax.swing.JToolBar;
-import javax.swing.JCheckBox;
 import javax.swing.LayoutStyle;
 
 public class ImagePanel6C extends ImagePanel {
 
-    private javax.swing.JTabbedPane GraphicsTab;
-    private javax.swing.JPanel anatomicpanel;
-    private javax.swing.JLabel circtitle;
-    private javax.swing.JLabel circuit;
-    private javax.swing.JLabel circuitmodel;
-    private javax.swing.JPanel circuitpanel;
-    private javax.swing.JTextArea desc;
-    private javax.swing.JScrollPane descpane;
-    private javax.swing.JLabel desctitle;
-    private javax.swing.JLabel flow;
-    private javax.swing.JLabel flowleft;
-    private javax.swing.JLabel flowright;
-    private javax.swing.JLabel hspace;
-    private javax.swing.JLabel hspace2;
-    private javax.swing.JLabel leftheart;
-    private javax.swing.JLabel llung;
-    private javax.swing.JLabel periphartery2;
-    private javax.swing.JLabel periphartey1;
-    private javax.swing.JLabel periphmicro;
-    private javax.swing.JLabel periphveins;
-    private javax.swing.JLabel periphveins2;
-    private javax.swing.JLabel periphviens3;
-    private javax.swing.JLabel pulartery;
-    private javax.swing.JLabel pulartery3;
-    private javax.swing.JLabel pulartey2;
-    private javax.swing.JLabel pulmicro;
-    private javax.swing.JLabel pulspace;
-    private javax.swing.JLabel pulveins;
-    private javax.swing.JLabel rightheart;
-    private javax.swing.JLabel rlung1;
-    private javax.swing.JLabel toplung;
+    private final javax.swing.JTabbedPane GraphicsTab;
+    private final javax.swing.JPanel anatomicpanel;
+    private final javax.swing.JLabel circtitle;
+    private final javax.swing.JLabel circuit;
+    private final javax.swing.JLabel circuitmodel;
+    private final javax.swing.JPanel circuitpanel;
+    private final javax.swing.JTextArea desc;
+    private final javax.swing.JScrollPane descpane;
+    private final javax.swing.JLabel desctitle;
+    private final javax.swing.JLabel flow;
+    private final javax.swing.JLabel flowleft;
+    private final javax.swing.JLabel flowright;
+    private final javax.swing.JLabel hspace;
+    private final javax.swing.JLabel hspace2;
+    private final javax.swing.JLabel leftheart;
+    private final javax.swing.JLabel llung;
+    private final javax.swing.JLabel periphartery2;
+    private final javax.swing.JLabel periphartey1;
+    private final javax.swing.JLabel periphmicro;
+    private final javax.swing.JLabel periphveins;
+    private final javax.swing.JLabel periphveins2;
+    private final javax.swing.JLabel periphviens3;
+    private final javax.swing.JLabel pulartery;
+    private final javax.swing.JLabel pulartery3;
+    private final javax.swing.JLabel pulartey2;
+    private final javax.swing.JLabel pulmicro;
+    private final javax.swing.JLabel pulspace;
+    private final javax.swing.JLabel pulveins;
+    private final javax.swing.JLabel rightheart;
+    private final javax.swing.JLabel rlung1;
+    private final javax.swing.JLabel toplung;
     
     public ImagePanel6C() {
 	GraphicsTab = new javax.swing.JTabbedPane();
@@ -98,13 +80,16 @@ public class ImagePanel6C extends ImagePanel {
 
         pulartery.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/3.jpg")));
         pulartery.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Pulmonary Arteries");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    pularteryMouseEntered(evt);
 		    highlightParameterTable("Pulmonary Arteries");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    pularteryMouseExited(evt);
 		}
@@ -112,13 +97,16 @@ public class ImagePanel6C extends ImagePanel {
 
         pulmicro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/4.jpg")));
         pulmicro.addMouseListener(new java.awt.event.MouseAdapter() {
+                    @Override
             	public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Pulmonary Microcirculation");
 		}
+                    @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    pulmicroMouseEntered(evt);
 		    highlightParameterTable("Pulmonary Microcirculation");
 		}
+                    @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    pulmicroMouseExited(evt);
 		}
@@ -128,13 +116,16 @@ public class ImagePanel6C extends ImagePanel {
 
         periphveins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/8.jpg")));
         periphveins.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Systemic Veins");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    periphveinsMouseEntered(evt);
 		    highlightParameterTable("Systemic Veins");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    periphveinsMouseExited(evt);
 		}
@@ -142,13 +133,16 @@ public class ImagePanel6C extends ImagePanel {
 
         periphveins2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/9.jpg")));
         periphveins2.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Systemic Veins");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    periphveins2MouseEntered(evt);
 		    highlightParameterTable("Systemic Veins");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    periphveins2MouseExited(evt);
 		}
@@ -156,13 +150,16 @@ public class ImagePanel6C extends ImagePanel {
 
         pulartey2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/10a.jpg")));
         pulartey2.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Pulmonary Arteries");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    pulartey2MouseEntered(evt);
 		    highlightParameterTable("Pulmonary Arteries");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    pulartey2MouseExited(evt);
 		}
@@ -170,13 +167,16 @@ public class ImagePanel6C extends ImagePanel {
 
         periphviens3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/10d.jpg")));
         periphviens3.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Pulmonary Veins");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    periphviens3MouseEntered(evt);
 		    highlightParameterTable("Pulmonary Veins");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    periphviens3MouseExited(evt);
 		}
@@ -184,13 +184,16 @@ public class ImagePanel6C extends ImagePanel {
 
         pulartery3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/10c.jpg")));
         pulartery3.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Pulmonary Arteries");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    pulartery3MouseEntered(evt);
 		    highlightParameterTable("Pulmonary Arteries");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    pulartery3MouseExited(evt);
 		}
@@ -200,13 +203,16 @@ public class ImagePanel6C extends ImagePanel {
 
         periphartey1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/5new.jpg")));
         periphartey1.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Systemic Arteries");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    periphartey1MouseEntered(evt);
 		    highlightParameterTable("Systemic Arteries");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    periphartey1MouseExited(evt);
 		}
@@ -214,13 +220,16 @@ public class ImagePanel6C extends ImagePanel {
 
         rightheart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/13.jpg")));
         rightheart.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Right Heart");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    rightheartMouseEntered(evt);
 		    highlightParameterTable("Right Heart");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    rightheartMouseExited(evt);
 		}
@@ -228,13 +237,16 @@ public class ImagePanel6C extends ImagePanel {
 
         pulveins.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/6.jpg")));
         pulveins.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Pulmonary Veins");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    pulveinsMouseEntered(evt);
 		    highlightParameterTable("Pulmonary Veins");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    pulveinsMouseExited(evt);
 		}
@@ -242,13 +254,16 @@ public class ImagePanel6C extends ImagePanel {
 
         leftheart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/14.jpg")));
         leftheart.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Left Heart");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    leftheartMouseEntered(evt);
 		    highlightParameterTable("Left Heart");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    leftheartMouseExited(evt);
 		}
@@ -260,13 +275,16 @@ public class ImagePanel6C extends ImagePanel {
 
         periphartery2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/16.jpg")));
         periphartery2.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    filterParameterTable("Systemic Arteries");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    periphartery2MouseEntered(evt);
 		    highlightParameterTable("Systemic Arteries");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    periphartery2MouseExited(evt);
 		}
@@ -274,15 +292,18 @@ public class ImagePanel6C extends ImagePanel {
 
         periphmicro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images6C/18.jpg")));
         periphmicro.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
 		public void mouseClicked(java.awt.event.MouseEvent evt) {
 		    if (CVSim.simulationModelName.equals(CVSim.MODEL_6C))
 			filterParameterTable("Systemic Microcirculation");
 		}
+                @Override
 		public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    periphmicroMouseEntered(evt);
 		    if (CVSim.simulationModelName.equals(CVSim.MODEL_6C))
 			highlightParameterTable("Systemic Microcirculation");
 		}
+                @Override
 		public void mouseExited(java.awt.event.MouseEvent evt) {
 		    periphmicroMouseExited(evt);
 		}

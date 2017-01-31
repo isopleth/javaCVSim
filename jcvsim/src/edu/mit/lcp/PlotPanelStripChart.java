@@ -2,7 +2,6 @@ package edu.mit.lcp;
 
 import java.awt.geom.Point2D;
 import java.awt.Insets;
-import javax.swing.JComponent;
 import java.beans.PropertyChangeEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;

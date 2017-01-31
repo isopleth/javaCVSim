@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.util.Iterator;
 import java.util.ArrayList;
 import javax.swing.AbstractListModel;
-import javax.swing.event.EventListenerList;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
@@ -13,10 +12,11 @@ import java.beans.PropertyChangeEvent;
 
 public class TraceListModel extends AbstractListModel implements Iterable<Trace> {
     // This list used to hold the traces
-    private List<Trace> _traceList = new CopyOnWriteArrayList<Trace>();
-    public List<Color> colorList = new ArrayList<Color>();
+    private List<Trace> _traceList = new CopyOnWriteArrayList<>();
+    public List<Color> colorList = new ArrayList<>();
 
-    private PropertyChangeListener tracePropertyChangeListener = new PropertyChangeListener() {
+    private final PropertyChangeListener tracePropertyChangeListener = new PropertyChangeListener() {
+            @Override
 	    public void propertyChange(PropertyChangeEvent pce) {
 		Trace t = (Trace)pce.getSource();
 		fireContentsChanged(this, _traceList.indexOf(t), _traceList.indexOf(t));
@@ -56,6 +56,7 @@ public class TraceListModel extends AbstractListModel implements Iterable<Trace>
 	fireIntervalRemoved(this, 0, oldSize-1);
     }
 
+    @Override
     public Trace<?,?> getElementAt(int index) {
 	return _traceList.get(index);
     }
@@ -72,6 +73,7 @@ public class TraceListModel extends AbstractListModel implements Iterable<Trace>
 	return _traceList.isEmpty();
     }
 	
+    @Override
     public int getSize() {
 	return _traceList.size();
     }
@@ -81,7 +83,7 @@ public class TraceListModel extends AbstractListModel implements Iterable<Trace>
     }
 
     public Color getNextColor() {
-	List<Color> remainingColors = new ArrayList<Color>(colorList);
+	List<Color> remainingColors = new ArrayList<>(colorList);
 	for (Trace trace: _traceList) {
 	    remainingColors.remove(trace.getColor());
 	}
@@ -94,6 +96,7 @@ public class TraceListModel extends AbstractListModel implements Iterable<Trace>
     
     ////////////////////////////////
     // Public Interface for Iterable
+    @Override
     public Iterator<Trace> iterator() {
 	// Pass the iterator from the list as our iterator
 	return _traceList.iterator();

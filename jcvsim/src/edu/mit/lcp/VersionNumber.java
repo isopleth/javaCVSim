@@ -17,6 +17,7 @@ public final class VersionNumber {
     public void setMajorVerNum(int i) { _majorVerNum = i; }
     public void setMinorVerNum(int i) { _minorVerNum = i; }
     
+    @Override
     public String toString() {
 	return _majorVerNum + "." + _minorVerNum;
     }

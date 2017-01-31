@@ -1,9 +1,7 @@
 package edu.mit.lcp;
-import java.awt.geom.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
-import java.awt.Insets;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -13,32 +11,21 @@ import java.awt.Rectangle;
 import java.awt.Insets;
 import java.awt.event.*;
 import java.util.*;
-import java.lang.Math;
-import java.awt.geom.Point2D;
-import java.awt.BorderLayout;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.awt.image.VolatileImage;
 import javax.swing.SwingConstants;
 import javax.swing.border.*;
 import java.text.NumberFormat;
-import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import javax.swing.JCheckBox;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
 
 
 public class YscaleComponent extends JComponent {
     private TraceListModel traceList;
     private List<Scale> _scaleList;
-    private int _padding;
-    private int _numTicks;
+    private final int _padding;
+    private final int _numTicks;
     private PlotPanel _plotPanel;
-    private PlotComponent _plot;
+    private final PlotComponent _plot;
     private double min = 0;
     private double max = 0;
     public static final String PROP_MULTISCALES = "MULTISCALES";
@@ -46,7 +33,7 @@ public class YscaleComponent extends JComponent {
     
     public YscaleComponent(TraceListModel listModel, int pad, int numTicks, PlotPanel plotPanel) {
 	//System.out.println("yScaleComponent()");
-	_scaleList = new ArrayList<Scale>();
+	_scaleList = new ArrayList<>();
 	traceList = listModel;
 	_padding = pad;
 	_numTicks = numTicks;
@@ -64,6 +51,7 @@ public class YscaleComponent extends JComponent {
 	}
 
 	traceList.addListDataListener( new ListDataListener() {
+                @Override
 		public void intervalAdded(ListDataEvent e) {	
 		    Trace t = traceList.getElementAt(e.getIndex0());
 		    // update global min and max
@@ -88,6 +76,7 @@ public class YscaleComponent extends JComponent {
 		    }
 		}		
 
+                @Override
 		public void intervalRemoved(ListDataEvent e) {
 		    // if using multiple scales or 
 		    // using single scale but removing last trace,
@@ -99,10 +88,12 @@ public class YscaleComponent extends JComponent {
 			remove(s);
 		    }
 		}
+                @Override
 		public void contentsChanged(ListDataEvent e){}
 	    });    
 				       
 	this.addPropertyChangeListener(PROP_MULTISCALES, new PropertyChangeListener() {
+                @Override
 		public void propertyChange(PropertyChangeEvent pce) {
 		    // switch to multiple scales 
 		    if ( (Boolean)pce.getNewValue() ) {
@@ -144,9 +135,11 @@ public class YscaleComponent extends JComponent {
 	    });
     }
 	
+    @Override
     public Dimension getPreferredSize() {
 	return getMinimumSize();
     }
+    @Override
     public Dimension getMinimumSize() {
 	int x=0;
 	int y=Integer.MAX_VALUE;
@@ -162,15 +155,15 @@ public class YscaleComponent extends JComponent {
 
     //////////////////////////////
     private class Scale extends JComponent {
-	private int SCALE_WIDTH = 10;
-	private int SCALE_LABEL_SPACING = 2;
-	private int MAJOR_TICK_WIDTH = 10;
-	private int MINOR_TICK_WIDTH = 5;
+	private final int SCALE_WIDTH = 10;
+	private final int SCALE_LABEL_SPACING = 2;
+	private final int MAJOR_TICK_WIDTH = 10;
+	private final int MINOR_TICK_WIDTH = 5;
 
-	private JLabel ylabel;
+	private final JLabel ylabel;
 	
-	private Font rangeFont = new Font("Serif", Font.PLAIN, 10);
-	private Font labelFont = new Font("Serif", Font.PLAIN, 12);
+	private final Font rangeFont = new Font("Serif", Font.PLAIN, 10);
+	private final Font labelFont = new Font("Serif", Font.PLAIN, 12);
 	private JFormattedTextField minField;
 	private JFormattedTextField maxField;
 
@@ -186,12 +179,12 @@ public class YscaleComponent extends JComponent {
 	NumberFormat doubleFormat = NumberFormat.getNumberInstance();
 	
 	// Add Support for Property Changes
-	private PropertyChangeSupport _changes = new PropertyChangeSupport(this);
+	private final PropertyChangeSupport _changes = new PropertyChangeSupport(this);
 	public static final String VALUE = "value";
 
 	Scale(Trace t) {
 	    trace = t;
-	    textfields = new ArrayList<JFormattedTextField>();
+	    textfields = new ArrayList<>();
 	    if ( _plotPanel.getMultipleYScales() )
 		color = trace.getColor();
 	    else
@@ -238,6 +231,7 @@ public class YscaleComponent extends JComponent {
 	    textfields.add(maxField);
 
 	    minField.addPropertyChangeListener(VALUE, new PropertyChangeListener() {
+                    @Override
 		    public void propertyChange(PropertyChangeEvent pce) {
 			scaleMin = ((Number)minField.getValue()).doubleValue();
 			// Can't do this because we want the smallest scale min now, not the smallest 
@@ -262,6 +256,7 @@ public class YscaleComponent extends JComponent {
 		});
 
 	    maxField.addPropertyChangeListener(VALUE, new PropertyChangeListener() {
+                    @Override
 		    public void propertyChange(PropertyChangeEvent pce) {
 			scaleMax = ((Number)maxField.getValue()).doubleValue();
 			// Can't do this because we want the largest scale max now, not the largest 
@@ -287,6 +282,7 @@ public class YscaleComponent extends JComponent {
 
 
 	    trace.addPropertyChangeListener(Trace.PROP_YRANGE, new PropertyChangeListener() { 
+                    @Override
 		    public void propertyChange(PropertyChangeEvent pce) {
 			Range range = (Range)pce.getNewValue();
 			setRange(range);
@@ -301,6 +297,7 @@ public class YscaleComponent extends JComponent {
 		});
 
 	    trace.addPropertyChangeListener(Trace.PROP_COLOR, new PropertyChangeListener() {
+                    @Override
 		    public void propertyChange(PropertyChangeEvent pce) {
 			color = (Color)pce.getNewValue();
 			//updateComponent();
@@ -313,6 +310,7 @@ public class YscaleComponent extends JComponent {
 		});
 	    
 	    trace.addPropertyChangeListener(Trace.PROP_ENABLED, new PropertyChangeListener() {
+                    @Override
 		    public void propertyChange(PropertyChangeEvent pce) {
 			setVisible((Boolean)pce.getNewValue());
 			updateComponent();
@@ -321,6 +319,7 @@ public class YscaleComponent extends JComponent {
 
 	    // register handler for resize events
 	    this.addComponentListener( new ComponentAdapter() {
+                    @Override
 		    public void componentResized(ComponentEvent e) {
 			updateComponent();
 		    }
@@ -343,6 +342,7 @@ public class YscaleComponent extends JComponent {
 	    return new Range(scaleMin, scaleMax);
 	}
 
+        @Override
 	public void paintComponent(Graphics g) {
 	    super.paintComponent(g);
 	    updateComponent();
@@ -362,6 +362,7 @@ public class YscaleComponent extends JComponent {
 
 	}
 
+        @Override
 	public Dimension getMinimumSize() {
 	    Dimension dim = new Dimension(0,2*ylabel.getPreferredSize().height);
 	    if (isVisible()) {
@@ -370,9 +371,11 @@ public class YscaleComponent extends JComponent {
 	    }
 	    return dim;
 	}
+        @Override
 	public Dimension getMaximumSize() {
 	    return new Dimension(getMinimumSize().width, Integer.MAX_VALUE);
 	}
+        @Override
 	public Dimension getPreferredSize() {
 	    return getMaximumSize();
 	}
@@ -458,10 +461,12 @@ public class YscaleComponent extends JComponent {
      * @see #removePropertyChangeListener
      * @param l the PropertyChangeListener
      */      
+    @Override
     public void addPropertyChangeListener(PropertyChangeListener l) {
 	_changes.addPropertyChangeListener(l);
     }
     
+    @Override
     public void addPropertyChangeListener(String propertyName, PropertyChangeListener listener) {
 	_changes.addPropertyChangeListener(propertyName, listener);
     }
@@ -473,6 +478,7 @@ public class YscaleComponent extends JComponent {
      * @see #addPropertyChangeListener
      * @param l the PropertyChangeListener
      */      
+    @Override
     public void removePropertyChangeListener(PropertyChangeListener l) {
 	_changes.removePropertyChangeListener(l);
     }

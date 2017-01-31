@@ -1,7 +1,5 @@
 package edu.mit.lcp;
 
-import java.util.Iterator;
-
 public interface VariableRecorderInterface<DataType extends Number & Comparable<DataType>>
     extends Iterable<DataType> {
 
