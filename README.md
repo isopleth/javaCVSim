@@ -29,5 +29,6 @@ original. The Infonode library is included as source code, and the
 Jdesktop library is not included as it is no longer needed.
 
 
-The code also contains a few minor changes, the only one of significance is an
-array length+1 error in the Turning algorithm code.
+The code also contains a few trivial changes compared to CVSim 1.16,
+the only one of note is a fix to an array length+1 error in the
+Turning algorithm code.
