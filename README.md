@@ -12,17 +12,17 @@ Installation
 
 The code is written in Java.  These are the instructions for a Linux terminal window.
 
-- Run ```git clone https://github.com/isopleth/jCVSim.git''' to obtain the source code
-- ```cd jCVSim/jCVSim'''
+- Run ```git clone https://github.com/isopleth/jCVSim.git``` to obtain the source code
+- ```cd jCVSim/jCVSim```
 - Run ```ant''' to build the project using build.xml and the sources in the src tree
-- Run ```java -jar dist/jcvsim.jar''' (or the Bash script ```run-jCVSim''' to run the program.
+- Run ```java -jar dist/jcvsim.jar``` (or the Bash script ```run-jCVSim``` to run the program.
 
 Alternatively there is a copy of the jar file in the bin directory.
 
 Documentation
 -------------
 
-This is a port of the original Java/C version in
+This is a port of the original Java/C version from
 https://physionet.org/physiotools/cvsim/ to pure Java, with some
 changes to improve on the readability of the source code of the
 original. The Infonode library is included as source code, and the
