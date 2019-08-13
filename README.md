@@ -12,8 +12,8 @@ Installation
 
 The code is written in Java.  These are the instructions for a Linux terminal window.
 
-- Run ```git clone https://github.com/isopleth/jCVSim.git``` to obtain the source code
-- ```cd jCVSim/jCVSim``` to change the default directory to the source tree
+- Run ```git clone https://github.com/isopleth/javaCVSim.git``` to obtain the source code
+- ```cd javaCVSim/jCVSim``` to change the default directory to the source tree
 - Run ```ant``` to build the project using build.xml and the sources in the src tree
 - Run ```java -jar dist/jcvsim.jar``` (or the Bash script ```run-jCVSim```) to run the program
 
