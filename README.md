@@ -17,7 +17,7 @@ The code is written in Java.  These are the instructions for a Linux terminal wi
 - Run ```ant``` to build the project using build.xml and the sources in the src tree
 - Run ```java -jar dist/jcvsim.jar``` (or the Bash script ```run-jCVSim```) to run the program
 
-Alternatively there is a copy of the jar file in the dist directory.
+Alternatively there is a copy of the jar file in the bin directory which you could run with ```java -jar bin/jcvsim.jar```.
 
 Documentation
 -------------
