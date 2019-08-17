@@ -1,7 +1,9 @@
 This is a port of the CVSim 1.16 cardiovascular simulation program to pure
 Java.  CVSim had a Java GUI and a C simulation engine; this program has the
 simulation engine ported to Java and some small changes made to it, mainly
-to improve readability.
+to improve readability.  It was a step in the development of https://github.com/isopleth/jCVSim 
+which is a version that also simulates effects of breathing on the cardiovacular 
+system.
 
 ## Table of Contents
 - [Installation](#installation)
